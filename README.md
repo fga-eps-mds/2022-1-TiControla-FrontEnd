@@ -1,7 +1,7 @@
 # 2022-1-Squad1 (MDS)
 - Tema do Trabalho:
 - Linguagens e Canais de Comunicação Utilizados:
-- Número de Encontros: 2
+- Número de Encontros: 3
 
 # Integrantes do Squad 1
 |Nome|Usuário GitHub|
