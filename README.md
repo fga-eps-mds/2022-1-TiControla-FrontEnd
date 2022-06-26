@@ -1,5 +1,5 @@
 # 2022-1-Squad1 (MDS)
-- Tema do Trabalho:
+- Tema do Trabalho: Aplicativo de Finanças Pessoais
 - Linguagens e Canais de Comunicação Utilizados:
 - Número de Encontros: 3
 
