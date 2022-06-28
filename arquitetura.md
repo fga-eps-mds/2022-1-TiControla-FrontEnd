@@ -1,13 +1,11 @@
-# Documentação da arquitetura geral do [nome]
+# Documentação da arquitetura geral do TiControla
 
 ## Objetivo
-Este documento tem como finalidade uma breve apresentação da arquitetura do projeto nome do
-sistema, descrevendo como as diferentes partes do mesmo interagem-se entre si e como funciona
-num todo .
+Este documento tem como finalidade uma breve apresentação da arquitetura do projeto, descrevendo como as diferentes partes interagem entre si e como funcionam num todo.
 
 ## Escopo
 
-A arquitetura do projeto [nome] é totalmente fundamentada e detalhada, para moldar
+A arquitetura do projeto é totalmente fundamentada e detalhada, para moldar
 uma base para a equipe de desenvolvimento, apresentando como será o comportamento do sistema.
 Este documento contem os registros e tópicos importantes relacionados à arquitetura do sistema,
 dando diretrizes, e total apoio para o uso de suas tecnologias .
