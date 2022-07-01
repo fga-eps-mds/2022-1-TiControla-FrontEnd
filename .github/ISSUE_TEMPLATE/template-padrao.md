@@ -1,5 +1,5 @@
 ---
-name: Template padrão
+name: Template padrao
 about: Usar este template caso os outros não atendam.
 title: ''
 labels: ''
