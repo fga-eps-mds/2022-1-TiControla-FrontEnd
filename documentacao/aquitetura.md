@@ -42,7 +42,9 @@ Eis a lista dos componetnes do sistema :
 * **Servidor central** :  responsável pelo recebimento e processamento das demandas do usuário.
 * **Servidor de banco de dados** : responsável pelo armazenamento dos dados do cliente.
 
-![diagrama de arquitetura](https://user-images.githubusercontent.com/9947506/176018987-5ac04711-7778-4571-850d-b674dda9ab3e.png)
+
+![diagrama de arquitetura](https://user-images.githubusercontent.com/9947506/178041409-f5e738fa-5e7f-4b28-9ea7-56f17dbdf6eb.png)
+
 
 
 ##  Visualização dos casos de uso
