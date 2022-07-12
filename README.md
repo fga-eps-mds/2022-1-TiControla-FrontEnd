@@ -1,7 +1,6 @@
 # 2022-1-Squad1 (MDS)
 - Tema do Trabalho: Aplicativo de Finanças Pessoais
-- Linguagens e Canais de Comunicação Utilizados:
-- Número de Encontros: 3
+- Número de Encontros: 6
 
 # Integrantes do Squad 1
 |Nome|Usuário GitHub|
