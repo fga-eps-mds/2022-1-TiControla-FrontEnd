@@ -22,7 +22,7 @@
 
  
 ## Conteúdos presentes na atual build do exemplo
-- [ ] Interface "principal"
+- [x] Interface "principal"
 - [ ] Interface "login"
 - [ ] Interface "cadastrar"
 - [ ] Interface "perfil"
