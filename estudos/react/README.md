@@ -26,7 +26,6 @@
 - [ ] Interface "login"
 - [ ] Interface "cadastrar"
 - [ ] Interface "perfil"
-- [ ] Interfacee "login"
 - [ ] Interface "lançamentos"
 - [ ] Interface "edição"
 - [ ] Interface "cadastro"
