@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View,FlatList } from 'react-native';
 import Header from './components/header';
+import TodoItem from './components/todoItems';
 
 export default function App() {
 
@@ -11,6 +12,11 @@ export default function App() {
     { task: 'Fechar a issue', key: 3 },
     { task: 'Aprender a fazer Pull Request', key: 4 },
   ]);
+
+  const pressHandler = (key) => 
+  {
+      setTodoList((prevTodo => prevTodo.filter(todo => todo.key != key )));
+  }
 
   return (
     <View style={styles.container}>
@@ -22,7 +28,7 @@ export default function App() {
         <View style={styles.list} >
           
           <FlatList data={todoList} renderItem={({ item })=>(
-            <Text>{item.task}</Text>
+            <TodoItem item={item} pressHandler={pressHandler}  />
           )}
           />
         </View>
