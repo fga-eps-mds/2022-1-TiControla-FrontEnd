@@ -1,16 +1,20 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TextProps } from 'react-native';
+
+type TextoProps = {
+  tipo?: 'normal' | 'medio' | 'negrito'
+}
 
 
-export default function Texto({ children, style }: any) {
+export default function Texto({children, style, tipo='normal'}: TextProps & TextoProps) {
   let estilo = estilos.texto;
-  
-  if(style?.fontWeight === 'bold') {
-    estilo = estilos.textoNegrito;
+
+  if(tipo === 'medio') {
+    estilo = estilos.textoMedio;
   }
 
-  if(style?.fontWeight === '500') {
-    estilo = estilos.textoMedio;
+  if(tipo === 'negrito') {
+    estilo = estilos.textoNegrito;
   }
 
   return <Text style={[style, estilo]}>{ children }</Text>
@@ -26,7 +30,7 @@ const estilos = StyleSheet.create({
     fontWeight: 'normal'
   },
   textoNegrito: {
-    fontFamily: 'Quicksand_700Bold',
+    fontFamily: 'QuicksandBold',
     fontWeight: 'normal',
   }
 });
