@@ -33,6 +33,6 @@ const estilos = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 16
+    elevation: 10,
   }
 });
