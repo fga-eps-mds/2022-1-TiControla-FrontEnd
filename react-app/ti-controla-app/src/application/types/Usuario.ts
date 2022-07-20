@@ -5,5 +5,6 @@ export type Usuario = {
     senha: string,
     saldo: number,
     limiteMaximo?: number,
-    limiteDisponivel: number
+    limiteDisponivel: number,
+    totalDasFaturas?: number
 }

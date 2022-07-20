@@ -8,4 +8,5 @@ export const usuarioTest: Usuario = {
     saldo: 3000,
     limiteMaximo: 2000,
     limiteDisponivel: 1500,
+    totalDasFaturas: 2000,
 }
