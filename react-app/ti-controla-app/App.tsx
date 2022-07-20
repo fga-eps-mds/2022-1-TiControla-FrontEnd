@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import {useFonts, Quicksand_400Regular, Quicksand_500Medium, Quicksand_700Bold} from '@expo-google-fonts/quicksand';
-import AppLoading from 'expo-app-loading';
 import Texto from './src/components/Texto'
 import Botao from './src/components/Botao';
 import Home from './src/views/Home';
+import { usuarioTest } from './src/application/mocks/usuarioTest';
  
 export default function App() {
   const[fonteCarregada] = useFonts({
@@ -13,7 +13,7 @@ export default function App() {
     'QuicksandBold': Quicksand_700Bold,
   })
 
-  if(!fonteCarregada) return <AppLoading/>
+  if(!fonteCarregada) return <View/>
 
   return (
     <SafeAreaView>
@@ -24,8 +24,8 @@ export default function App() {
       <Botao tipo='pequeno' cor='verde'>Editar</Botao>
       <Botao tipo='grande' cor='vermelho'>Excluir minha conta</Botao>
       <Botao tipo='pequeno' cor='vermelho'>Deletar</Botao> */}
-      <Home/>
       <StatusBar style="auto" />
+      <Home {...usuarioTest}/>
     </SafeAreaView>
   );
 }
