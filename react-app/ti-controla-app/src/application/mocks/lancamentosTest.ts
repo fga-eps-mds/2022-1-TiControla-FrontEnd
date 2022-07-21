@@ -40,7 +40,7 @@ export const lancamentosTeste: Lancamento[] = [
     },
     {
         id: usuarioTest,
-        codigo: 'fed96416-aa50-4fcd-9483-914a25a41a32',
+        codigo: 'e6c390d5-74d1-4bc4-b49a-e83c4c97ad21',
         tipo: 'credito',
         nome: 'Petz',
         apelidoCartao: 'digio',
@@ -52,7 +52,7 @@ export const lancamentosTeste: Lancamento[] = [
     },
     {
         id: usuarioTest,
-        codigo: 'fed96416-aa50-4fcd-9483-914a25a41a32',
+        codigo: '10aa5c78-17da-44aa-9b84-4a9bbe3a339e',
         tipo: 'credito',
         nome: 'Curso',
         apelidoCartao: 'digio',
