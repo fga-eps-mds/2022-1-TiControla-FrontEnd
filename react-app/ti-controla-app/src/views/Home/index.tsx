@@ -1,9 +1,13 @@
 import { usuarioTest } from "../../application/mocks/usuarioTest";
 import InfoContainer from "../../components/InfoContainer";
 import Header from "./components/Header";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, FlatList, ScrollView } from "react-native";
 import Texto from "../../components/Texto";
 import { Usuario } from "../../application/types/Usuario";
+import { dimensao } from "../../utils/dimensoesDoDipositivo";
+import CardGasto from "../../components/CardGasto";
+import { lancamentosTeste } from "../../application/mocks/lancamentosTest";
+import Monetario from "../../components/Monetario";
 
 export default function Home({
   id,
@@ -15,38 +19,59 @@ export default function Home({
   totalDasFaturas,
 }: Usuario) {
   return (
-    <View style={{ alignItems: "center" }}>
-      <Header {...usuarioTest} />
-      <InfoContainer style={estilos.container}>
-        <View>
-          <Texto style={estilos.tituloInfo}>Total das faturas:</Texto>
-          <Texto style={estilos.valorInfo}>{totalDasFaturas}</Texto>
-        </View>
-        <View>
-          <Texto style={estilos.tituloInfo}>
-            Seu limite de crédito mensal:
+    <ScrollView>
+      <View style={{ alignItems: "center" }}>
+        <Header {...usuarioTest} />
+        <InfoContainer style={estilos.container}>
+          <View>
+            <Texto style={estilos.texto16}>Total das faturas:</Texto>
+            <Monetario style={[estilos.texto22, { marginBottom: 10 }]}>{totalDasFaturas!}</Monetario>
+          </View>
+          <View>
+            <Texto style={estilos.texto16}>Seu limite de crédito mensal:</Texto>
+            <Monetario style={[estilos.texto22, { marginBottom: 10 }]}>
+              {limiteMaximo}
+            </Monetario>
+          </View>
+          <View>
+            <Texto style={estilos.texto16}>Seu limite de crédito hoje:</Texto>
+            <Monetario style={estilos.texto22}>{limiteDisponivel}</Monetario>
+          </View>
+        </InfoContainer>
+        <View style={estilos.parcelamentosContainer}>
+          <Texto tipo="negrito" style={estilos.texto22}>
+            Parcelamentos vigentes
           </Texto>
-          <Texto style={estilos.valorInfo}>{limiteMaximo}</Texto>
+        {lancamentosTeste.map(lancamento => {
+          if(lancamento.parcelas != 'fixa' && lancamento.parcelas != 'unica'){
+            return <CardGasto {...lancamento} key={lancamento.codigo}/>
+          }else return;
+        })}
         </View>
-        <View>
-          <Texto style={estilos.tituloInfo}>Seu limite de crédito hoje:</Texto>
-          <Texto style={estilos.valorInfo}>{limiteDisponivel}</Texto>
-        </View>
-      </InfoContainer>
-    </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const estilos = StyleSheet.create({
   container: {
-    marginTop: 69,
+    marginTop: 74,
+    marginBottom: 48,
   },
-  tituloInfo: {
+  texto16: {
     color: "#fff",
     fontSize: 16,
   },
-  valorInfo: {
+  texto22: {
     color: "#fff",
     fontSize: 22,
+  },
+  parcelamentosContainer: {
+    width: dimensao.largura,
+    backgroundColor: "#0B4B54",
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+    alignItems: "center",
+    padding: 16,
   },
 });
