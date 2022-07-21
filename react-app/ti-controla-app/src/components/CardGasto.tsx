@@ -1,14 +1,15 @@
-import { View, StyleSheet, Touchable, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Touchable, TouchableOpacity, Image } from "react-native";
+import { icones } from "../application/icons/iconesDeCategoria";
 import { Lancamento } from "../application/types/Lancamento";
 import { dimensao } from "../utils/dimensoesDoDipositivo";
 import Monetario from "./Monetario";
 import Texto from "./Texto";
 
-export default function CardGasto({ nome, parcelas, valor }: Lancamento) {
+export default function CardGasto({ nome, parcelas, valor, categoria }: Lancamento) {
   return (
     <TouchableOpacity style={estilos.container}>
       <View style={{flexDirection: "row", alignItems: 'center'}}>
-        <View style={estilos.icone}></View>
+        <View style={estilos.icone}><Image source={icones[categoria]} width={24} height={24} /></View>
         <Texto style={estilos.texto16}>{nome}</Texto>
       </View>
       <Texto style={estilos.texto16}>
@@ -36,6 +37,8 @@ const estilos = StyleSheet.create({
     height: 38,
     borderRadius: 50,
     marginRight: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   texto16: {
     fontSize: 16,
