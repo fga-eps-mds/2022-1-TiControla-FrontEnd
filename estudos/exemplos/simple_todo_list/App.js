@@ -5,6 +5,7 @@ import Header from './components/header';
 import TodoItem from './components/todoItems';
 import AddTodo from './components/addTodo';
 import { Validator } from './helpers/functions';
+import Sandbox from './components/sandbox';
 
 export default function App() {
 
@@ -37,6 +38,7 @@ export default function App() {
   }
 
   return (
+    // <Sandbox/>
     <TouchableWithoutFeedback onPress ={()=>{Keyboard.dismiss()}}>
       <View style={styles.container}>
         <Header />      
@@ -62,8 +64,10 @@ const styles = StyleSheet.create({
   },
   content:{
     padding:40,
+    flex: 1,
   },
   list:{
-    marginTop:20
+    marginTop:20,
+    flex:1
   }
 });
