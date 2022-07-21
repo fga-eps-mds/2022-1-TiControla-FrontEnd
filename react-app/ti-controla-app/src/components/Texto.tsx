@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, TextProps } from 'react-native';
 
-type TextoProps = {
+export type TextoProps = {
   tipo?: 'normal' | 'medio' | 'negrito'
 }
 
