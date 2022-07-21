@@ -1,7 +1,7 @@
 import { usuarioTest } from "../../application/mocks/usuarioTest";
 import InfoContainer from "../../components/InfoContainer";
 import Header from "./components/Header";
-import { View, StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import Texto from "../../components/Texto";
 import { Usuario } from "../../application/types/Usuario";
 import { dimensao } from "../../utils/dimensoesDoDipositivo";
