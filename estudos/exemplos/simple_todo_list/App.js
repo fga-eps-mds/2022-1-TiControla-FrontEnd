@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View,FlatList } from 'react-native';
+import { StyleSheet, Alert, View,FlatList } from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItems';
 import AddTodo from './components/addTodo';
+import { Validator } from './helpers/functions';
 
 export default function App() {
 
@@ -19,12 +20,20 @@ export default function App() {
       setTodoList((prevTodo => prevTodo.filter(todo => todo.key != key )));
   }
   const submitHandler = (task) => {
-    setTodoList((prevTodos) => {
-      return [
-        { task, key: Math.random().toString() },
-        ...prevTodos
-      ];
-    });
+
+    if(new Validator().validateTask(task))
+    {
+      setTodoList((prevTodos) => {
+        return [
+          { task, key: Math.random().toString() },
+          ...prevTodos
+        ];
+      });
+    }else
+    {
+      Alert.alert('Oops!', 'Task must be over 3 chars long', [{ text: 'Undertood' }]);
+    }
+
   }
 
   return (
