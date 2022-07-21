@@ -5,6 +5,7 @@ import Menu from './Menu';
 import logoutIcon from '../../../assets/icons/logout.png';
 import profileIcon from '../../../assets/icons/profile.png';
 import { dimensao } from '../../../utils/dimensoesDoDipositivo';
+import Monetario from '../../../components/Monetario';
 
 export default function Header({nome, saldo}: Usuario) {
   return (
@@ -13,9 +14,9 @@ export default function Header({nome, saldo}: Usuario) {
         <Texto tipo='negrito' style={estilos.texto}>
           Olá, {nome}
         </Texto>
-        <Texto tipo='medio' style={estilos.texto}>
+        <Monetario tipo='medio' style={estilos.texto}>
           {saldo}
-        </Texto>
+        </Monetario>
         <View style={estilos.menu}>
           <Menu/>
         </View>
