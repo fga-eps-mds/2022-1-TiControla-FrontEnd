@@ -13,13 +13,14 @@ type BotaoProps = {
 
 export default function Botao({
   children,
-  style,
+  style = {},
+  onPress=() => {},
   tipo,
   cor
 }: TouchableOpacityProps & BotaoProps) {
   const estilos = getEstilos(tipo, cor);
   return (
-    <TouchableOpacity style={[estilos.botao, style]}>
+    <TouchableOpacity style={[estilos.botao, style]} onPress={onPress}>
       <Texto style={estilos.botaoTexto} tipo='negrito'>{children}</Texto>
     </TouchableOpacity>
   );
