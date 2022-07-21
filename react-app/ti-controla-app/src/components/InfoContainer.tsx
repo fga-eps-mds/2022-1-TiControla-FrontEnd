@@ -2,7 +2,7 @@ import { ViewProps, View, StyleSheet} from "react-native";
 import { dimensao } from "../utils/dimensoesDoDipositivo";
 
 
-export default function InfoContainer({children, style}: ViewProps) {
+export default function InfoContainer({children, style={}}: ViewProps) {
     return <View style={[estilos.container, style]}>{children}</View>
 }
 

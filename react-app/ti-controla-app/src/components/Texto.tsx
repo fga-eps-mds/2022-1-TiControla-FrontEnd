@@ -6,7 +6,7 @@ export type TextoProps = {
 }
 
 
-export default function Texto({children, style, tipo='normal'}: TextProps & TextoProps) {
+export default function Texto({children, style={}, tipo='normal'}: TextProps & TextoProps) {
   let estilo = estilos.texto;
 
   if(tipo === 'medio') {
