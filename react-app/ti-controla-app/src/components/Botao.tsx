@@ -19,7 +19,7 @@ export default function Botao({
 }: TouchableOpacityProps & BotaoProps) {
   const estilos = getEstilos(tipo, cor);
   return (
-    <TouchableOpacity style={[estilos.botao, style]}>
+    <TouchableOpacity activeOpacity={0.8} style={[estilos.botao, style]}>
       <Texto style={estilos.botaoTexto} tipo='negrito'>{children}</Texto>
     </TouchableOpacity>
   );
@@ -32,8 +32,8 @@ const getEstilos = (tipo: 'grande' | 'pequeno', cor: 'verde' | 'vermelho') =>
       justifyContent: 'center',
       backgroundColor: cor === 'verde'? '#59D9DA' : '#DA6159',
       borderRadius: 30,
-      width: tipo === 'grande'? 246 : 126,
-      height: tipo === 'grande' ? 50: 30,
+      width: tipo === 'grande'? 286 : 126,
+      height: tipo === 'grande' ? 60: 30,
     },
     botaoTexto: {
       color: cor === 'verde'?  '#0B4B54' : '#000',
