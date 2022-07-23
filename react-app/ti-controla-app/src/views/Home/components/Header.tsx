@@ -1,4 +1,5 @@
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 import { Usuario } from '../../../application/types/Usuario';
 import Texto from '../../../components/Texto';
 import Menu from './Menu';
@@ -8,6 +9,7 @@ import { dimensao } from '../../../utils/dimensoesDoDipositivo';
 import Monetario from '../../../components/Monetario';
 
 export default function Header({nome, saldo}: Usuario) {
+  const navigation = useNavigation();
   return (
     <View style={{ position: 'relative'}}>
       <View style={estilos.container}>
@@ -20,7 +22,7 @@ export default function Header({nome, saldo}: Usuario) {
         <View style={estilos.menu}>
           <Menu/>
         </View>
-        <TouchableOpacity style={estilos.lougoutIcon}><Image source={logoutIcon} width={32} height={32}/></TouchableOpacity>
+        <TouchableOpacity style={estilos.lougoutIcon} onPress={() => navigation.navigate('Login')}><Image source={logoutIcon} width={32} height={32}/></TouchableOpacity>
         <TouchableOpacity style={estilos.profileIcon}><Image source={profileIcon} width={32} height={32}/></TouchableOpacity>
       </View>
     </View>

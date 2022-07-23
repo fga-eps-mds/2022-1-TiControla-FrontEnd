@@ -1,41 +1,33 @@
-import { usuarioTest } from "../../application/mocks/usuarioTest";
 import InfoContainer from "../../components/InfoContainer";
 import Header from "./components/Header";
 import { View, StyleSheet, ScrollView } from "react-native";
 import Texto from "../../components/Texto";
-import { Usuario } from "../../application/types/Usuario";
 import { dimensao } from "../../utils/dimensoesDoDipositivo";
 import CardGasto from "../../components/CardGasto";
 import { lancamentosTeste } from "../../application/mocks/lancamentosTest";
 import Monetario from "../../components/Monetario";
+import { RootStackScreenProps } from "../../application/types/RootStack";
 
-export default function Home({
-  id,
-  nome,
-  email,
-  saldo,
-  limiteDisponivel,
-  limiteMaximo,
-  totalDasFaturas,
-}: Usuario) {
+export default function Home({navigation, route}: RootStackScreenProps<'Home'>) {
+  const {usuario, id} = route.params;
   return (
     <ScrollView>
       <View style={{ alignItems: "center" }}>
-        <Header {...usuarioTest} />
+        <Header {...usuario} />
         <InfoContainer style={estilos.container}>
           <View>
             <Texto style={estilos.texto16}>Total das faturas:</Texto>
-            <Monetario style={[estilos.texto22, { marginBottom: 10 }]}>{totalDasFaturas!}</Monetario>
+            <Monetario style={[estilos.texto22, { marginBottom: 10 }]}>{usuario.totalDasFaturas!}</Monetario>
           </View>
           <View>
             <Texto style={estilos.texto16}>Seu limite de crédito mensal:</Texto>
             <Monetario style={[estilos.texto22, { marginBottom: 10 }]}>
-              {limiteMaximo}
+              {usuario.limiteMaximo}
             </Monetario>
           </View>
           <View>
             <Texto style={estilos.texto16}>Seu limite de crédito hoje:</Texto>
-            <Monetario style={estilos.texto22}>{limiteDisponivel}</Monetario>
+            <Monetario style={estilos.texto22}>{usuario.limiteDisponivel}</Monetario>
           </View>
         </InfoContainer>
         <View style={estilos.parcelamentosContainer}>
