@@ -61,5 +61,60 @@ export const lancamentosTeste: Lancamento[] = [
         descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
         valor: 49.99,
         parcelas: 12
+    },
+    {
+        id: usuarioTeste,
+        codigo: 'b267338e-6a20-418a-a48f-a169270b225e',
+        tipo: 'debito',
+        nome: 'Padaria',
+        data: new Date(),
+        categoria: 'comida',
+        descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+        valor: 30.00,
+        parcelas: 'unica'
+    },
+    {
+        id: usuarioTeste,
+        codigo: 'cf71f2f1-b12b-47ac-acba-718d7c55d944',
+        tipo: 'debito',
+        nome: 'Padaria',
+        data: new Date(),
+        categoria: 'comida',
+        descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+        valor: 30.00,
+        parcelas: 'unica'
+    },
+    {
+        id: usuarioTeste,
+        codigo: '5121685d-a687-4832-9f40-60c4ad3037ce',
+        tipo: 'debito',
+        nome: 'Cinema',
+        data: new Date(),
+        categoria: 'lazer',
+        descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+        valor: 24.50,
+        parcelas: 'unica'
+    },
+    {
+        id: usuarioTeste,
+        codigo: 'bda1c249-d3fc-485f-acc5-ece48a7cc627',
+        tipo: 'debito',
+        nome: 'Remedio',
+        data: new Date(),
+        categoria: 'pessoal',
+        descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+        valor: 50.00,
+        parcelas: 'unica'
+    },
+    {
+        id: usuarioTeste,
+        codigo: 'f49cb50b-9a0f-495a-9779-ad3e412adecb',
+        tipo: 'debito',
+        nome: 'Oléo do carro',
+        data: new Date(),
+        categoria: 'carro',
+        descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+        valor: 150.00,
+        parcelas: 'unica'
     }
 ]
