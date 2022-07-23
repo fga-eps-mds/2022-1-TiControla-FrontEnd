@@ -41,7 +41,7 @@ export default function Login({ navigation }: RootStackScreenProps<"Login">) {
             Esqueci a minha senha
           </Texto>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => navigation.navigate('Cadastro')}>
           <Texto tipo="negrito" style={estilos.naoPossuoConta}>
             Não possuo conta
           </Texto>
