@@ -8,6 +8,6 @@ export default function DebitoLancamentos({ navigation, route }: RootStackScreen
   
   return <>
     <Botao cor="verde" tipo="grande" onPress={() => navigation.navigate('DebitoDetalhamento', {lancamento: lancamentosTeste[2]} )}>Debito detalhamento</Botao>
-    <Botao cor="verde" tipo="grande" onPress={() => navigation.navigate("cadastroLancamentoDebito", {id: id})}>Cadastrar novo lançamento</Botao>
+    <Botao cor="verde" tipo="grande" onPress={() => navigation.navigate("CadastroLancamentoDebito", {id: id})}>Cadastrar novo lançamento</Botao>
   </>
 }
