@@ -110,7 +110,7 @@ export const lancamentosTeste: Lancamento[] = [
         id: usuarioTeste,
         codigo: 'f49cb50b-9a0f-495a-9779-ad3e412adecb',
         tipo: 'debito',
-        nome: 'Oléo do carro',
+        nome: 'Óleo do carro',
         data: new Date(),
         categoria: 'carro',
         descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
