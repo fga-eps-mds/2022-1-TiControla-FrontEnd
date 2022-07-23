@@ -28,7 +28,7 @@ export default function Header({}){
         <View style={styles.user}>
 
             <TouchableOpacity activeOpacity={0.9} style = {styles.buttonuser}>
-                    <Feather name="user" size={100} color="#fff"/>
+                <Image source={require('../../assets/icons/profile.png')} style={styles.image}/>
             </TouchableOpacity>
 
         </View>
@@ -97,5 +97,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 182,
         marginLeft: 15,
+    },
+    image:{
+        flex: 0,
+        width: 100,
+        height: 100,
+        resizeMode: 'contain',
     }
 })
