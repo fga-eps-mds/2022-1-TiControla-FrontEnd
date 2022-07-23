@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-native-safe-area-context": "^4.3.1"
+  }
+}
