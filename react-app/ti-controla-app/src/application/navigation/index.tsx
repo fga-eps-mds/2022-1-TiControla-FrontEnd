@@ -1,6 +1,5 @@
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import {createAppContainer} from 'react-navigation'
 import Home from '../../views/home';
 import Login from '../../views/login';
 import { RootStackParamList } from '../types/RootStack';
