@@ -1,6 +1,6 @@
 import { Usuario } from "../types/Usuario";
 
-export const usuarioTest: Usuario = {
+export const usuarioTeste: Usuario = {
     id: '6198166159',
     nome: 'Usuario Teste',
     email: 'usuario@email.com',
