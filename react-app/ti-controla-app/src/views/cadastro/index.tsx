@@ -1,5 +1,3 @@
-import { usuarioTeste } from "../../application/mocks/usuarioTeste";
-import { RootStackScreenProps } from "../../application/types/RootStack";
 import {
   Image,
   View,
@@ -11,7 +9,7 @@ import Texto from "../../components/Texto";
 import logo from "../../assets/icons/logo.png";
 import { dimensao } from "../../utils/dimensoesDoDipositivo";
 
-export default function Login({ navigation }: RootStackScreenProps<"Login">) {
+export default function Cadastro() {
   return (
     <View style={estilos.container}>
       <View style={{alignItems: 'center'}}>
@@ -29,12 +27,6 @@ export default function Login({ navigation }: RootStackScreenProps<"Login">) {
         <Botao
           tipo="grande"
           cor="verde"
-          onPress={() => {
-            navigation.navigate("Home", {
-              usuario: usuarioTeste,
-              id: usuarioTeste.id,
-            });
-          }}
           style={{ marginTop: 24 }}
         >
           Cadastrar
