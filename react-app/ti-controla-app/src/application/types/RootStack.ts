@@ -21,6 +21,7 @@ export type RootStackParamList = {
     EdicaoLancamentoDebito: {lancamento: Lancamento}
     CadastroLancamentoCredito: {id: string}
     EdicaoLancamentoCredito: {lancamento: Lancamento}
+    GastosFixos: {id: string}
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

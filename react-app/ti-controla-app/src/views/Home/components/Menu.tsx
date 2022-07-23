@@ -17,7 +17,7 @@ export default function Menu({style, idUsuario}: ViewProps & MenuProps) {
         <TouchableOpacity style={estilos.botao} onPress={() => navigation.navigate('DebitoLancamentos', {id: idUsuario})}>
           <Texto tipo="negrito" style={estilos.texto}>Débito</Texto>
         </TouchableOpacity>
-        <TouchableOpacity style={estilos.botao}>
+        <TouchableOpacity style={estilos.botao} onPress={() => navigation.navigate('GastosFixos', {id: idUsuario})}>
           <Texto tipo="negrito" style={estilos.texto}>Fixos</Texto>
         </TouchableOpacity>
     </View>
