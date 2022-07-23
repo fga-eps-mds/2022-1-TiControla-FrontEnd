@@ -1,9 +1,9 @@
 import { Lancamento } from '../types/Lancamento';
-import { usuarioTest } from './usuarioTest';
+import { usuarioTeste } from './usuarioTeste';
 
 export const lancamentosTeste: Lancamento[] = [
     {
-        id: usuarioTest,
+        id: usuarioTeste,
         codigo: 'c6076c7b-e1dd-482b-be53-0f0fe4ef2854',
         tipo: 'credito',
         nome: 'Roupas de cama',
@@ -15,7 +15,7 @@ export const lancamentosTeste: Lancamento[] = [
         parcelas: 3
     },
     {
-        id: usuarioTest,
+        id: usuarioTeste,
         codigo: '2347dd9c-0ebc-41a8-a9fe-ad6b70d9271b',
         tipo: 'credito',
         nome: 'Tênis',
@@ -27,7 +27,7 @@ export const lancamentosTeste: Lancamento[] = [
         parcelas: 5
     },
     {
-        id: usuarioTest,
+        id: usuarioTeste,
         codigo: 'fed96416-aa50-4fcd-9483-914a25a41a32',
         tipo: 'credito',
         nome: 'Viagem',
@@ -39,7 +39,7 @@ export const lancamentosTeste: Lancamento[] = [
         parcelas: 3
     },
     {
-        id: usuarioTest,
+        id: usuarioTeste,
         codigo: 'e6c390d5-74d1-4bc4-b49a-e83c4c97ad21',
         tipo: 'credito',
         nome: 'Petz',
@@ -51,7 +51,7 @@ export const lancamentosTeste: Lancamento[] = [
         parcelas: 4
     },
     {
-        id: usuarioTest,
+        id: usuarioTeste,
         codigo: '10aa5c78-17da-44aa-9b84-4a9bbe3a339e',
         tipo: 'credito',
         nome: 'Curso',
