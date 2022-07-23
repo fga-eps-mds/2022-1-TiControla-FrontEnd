@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, StyleSheet, TextProps } from 'react-native';
 
-type TextoProps = {
+export type TextoProps = {
   tipo?: 'normal' | 'medio' | 'negrito'
 }
 
 
-export default function Texto({children, style, tipo='normal'}: TextProps & TextoProps) {
+export default function Texto({children, style={}, tipo='normal'}: TextProps & TextoProps) {
   let estilo = estilos.texto;
 
   if(tipo === 'medio') {
@@ -27,12 +27,10 @@ const estilos = StyleSheet.create({
   },
   textoMedio: {
     fontFamily: 'QuicksandMedium',
-    fontWeight: 'normal',
-    fontSize: 18,
+    fontWeight: 'normal'
   },
   textoNegrito: {
     fontFamily: 'QuicksandBold',
     fontWeight: 'normal',
-    fontSize: 22,
   }
 });
