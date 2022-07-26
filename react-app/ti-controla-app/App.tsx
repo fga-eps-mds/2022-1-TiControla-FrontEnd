@@ -1,9 +1,10 @@
 import { useFonts,Quicksand_400Regular, Quicksand_500Medium, Quicksand_700Bold } from "@expo-google-fonts/quicksand";
-import React from "react";
-import { StyleSheet, Text,TextProps, View, TouchableOpacity,StatusBar, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text,TextProps, View, TouchableOpacity,StatusBar, SafeAreaView, Modal } from "react-native";
 import Header from "./src/components/Header";
 import Texto from "./src/components/Texto";
 import { dimensao } from "./src/utils/dimensoesDoDispositivo";
+import {ModalLimite} from "./src/components/ModalLimite";
 
 export default function App() {
   const[fonteCarregada] = useFonts({
@@ -11,6 +12,8 @@ export default function App() {
     'QuicksandMedium': Quicksand_500Medium,
     'QuicksandBold': Quicksand_700Bold,
   })
+
+  const[visibleModal, setVisibleModal] = useState(false);
 
   if(!fonteCarregada) return <View/>
 
@@ -36,7 +39,7 @@ export default function App() {
             </View>
             
             <View style={styles.botoes}>
-               <TouchableOpacity activeOpacity={0.8} style={styles.buttonLimit}>
+               <TouchableOpacity activeOpacity={0.8} style={styles.buttonLimit} onPress={() => setVisibleModal(true)}>
                   <Texto tipo = 'negrito' style={styles.buttonLimitText}>
                       Alterar limite de crédito
                   </Texto>
@@ -50,7 +53,17 @@ export default function App() {
 
             </View>
 
-           
+           <Modal
+            visible={visibleModal}
+            transparent={true}
+            onRequestClose={() => setVisibleModal(false)}
+            animationType="slide"
+           >
+              <ModalLimite 
+               handleClose={() => setVisibleModal(false)}
+              />
+
+           </Modal>
             
 
       </SafeAreaView>
