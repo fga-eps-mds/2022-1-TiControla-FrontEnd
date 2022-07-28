@@ -5,10 +5,11 @@ import Header from "../components/Header";
 import Texto from "../components/Texto";
 import { dimensao } from "../utils/dimensoesDoDispositivo";
 import ModalLimite from "../components/ModalLimite";
-import { usuarioTest } from "../application/mocks/usuarioTest";
+//import { usuarioTest } from "../application/mocks/usuarioTest";
 import { Usuario } from "../application/types/Usuario";
 import Monetario from "../components/Monetario";
-import limiteNovo from "../components/ModalLimite";
+import {limiteNovo} from "../components/ModalLimite";
+
 
 export default function Profile({
     id,
@@ -47,7 +48,7 @@ export default function Profile({
                 <Texto tipo = 'medio' style={styles.infoTitle}> Limite de crédito:</Texto>
                 <Texto tipo = 'medio' style={styles.infoTitle}>
                     <Monetario tipo="medio">
-                         {limiteMaximo}
+                         {limiteNovo.limiteMaximo}
                     </Monetario> 
                 </Texto>
 

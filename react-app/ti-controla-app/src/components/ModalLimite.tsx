@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import{SafeAreaView,View, TouchableOpacity, TextInput, StyleSheet} from "react-native";
 import { dimensao } from "../utils/dimensoesDoDispositivo";
 import Texto from "./Texto";
-import { usuarioTest } from "../application/mocks/usuarioTest";
+//import { usuarioTest } from "../application/mocks/usuarioTest";
 import { Usuario } from "../application/types/Usuario";
 
 export default function ModalLimite({handleClose}: any) {
+    const[limite, setLimite] = useState(salvaLimite.limiteMaximo);
+    
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={{flex:1, zIndex:9}} onPress={handleClose}>
@@ -16,13 +18,12 @@ export default function ModalLimite({handleClose}: any) {
                     
                     <TextInput style={styles.input}
                         keyboardType="numeric"
-                        placeholder="Exemplo: 2499,99"
-                        
+                        placeholder="Exemplo: 2401.99"
                     >
                         
                     </TextInput>
 
-
+                    
                     <TouchableOpacity 
                         style={styles.actionButton}
                         onPress={ () => alert("Limite alterado com sucesso!")}
@@ -38,8 +39,24 @@ export default function ModalLimite({handleClose}: any) {
         </SafeAreaView>
     );
 }
-//const[limite, setLimite] = useState(usuarioTest.limiteMaximo);
-
+export const salvaLimite: Usuario ={
+    limiteMaximo: 1234567.89,
+    id: "1",
+    nome: "teste",
+    email: "teste@emailcom",
+    senha: "teste",
+    saldo: 1110,
+    limiteDisponivel: 10
+}
+export const limiteNovo: Usuario ={
+    limiteMaximo: salvaLimite.limiteMaximo,
+    id: "1",
+    nome: "teste",
+    email: "teste@emailcom",
+    senha: "teste",
+    saldo: 1110,
+    limiteDisponivel: 10
+}
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -85,7 +102,6 @@ const styles = StyleSheet.create({
     editText: { //texto do 'insira o valor desejado'
         textAlign: "center",
         fontSize: 20,
-        //color: '#bfbfbf',  cor depois de o fundo virar branco
         color: '#fff',
     },
     input: {

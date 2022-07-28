@@ -6,6 +6,5 @@ export const usuarioTest: Usuario = {
     email: 'usuario@email.com',
     senha: 'senha',
     saldo: 3000,
-    limiteMaximo: 2000,
     limiteDisponivel: 1500,
 }
