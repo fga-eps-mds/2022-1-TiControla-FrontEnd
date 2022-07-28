@@ -1,25 +1,32 @@
-import React from "react";
-import{SafeAreaView,View, TouchableOpacity, Text, StyleSheet} from "react-native";
+import React, { useState } from "react";
+import{SafeAreaView,View, TouchableOpacity, TextInput, StyleSheet} from "react-native";
+import { dimensao } from "../utils/dimensoesDoDispositivo";
 import Texto from "./Texto";
+import { usuarioTest } from "../application/mocks/usuarioTest";
+import { Usuario } from "../application/types/Usuario";
 
-export function ModalLimite({handleClose}) {
+export default function ModalLimite({handleClose}: any) {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={{flex:1, zIndex:9}} onPress={handleClose}>
                 
                 <View style={styles.content}>
-                    <TouchableOpacity 
-                    style={styles.creditButton}
-                    onPress={ () => {}}
-                    activeOpacity={0.92}
-                    >
-                        <Texto tipo = 'negrito' style={styles.editText}> Insira o novo limite</Texto>
-                    </TouchableOpacity>
+            
+                    <Texto tipo = 'negrito' style={styles.editText}> Insira o novo limite: </Texto>
                     
+                    <TextInput style={styles.input}
+                        keyboardType="numeric"
+                        placeholder="Exemplo: 2499,99"
+                        
+                    >
+                        
+                    </TextInput>
+
+
                     <TouchableOpacity 
-                    style={styles.actionButton}
-                    onPress={ () => alert("Limite alterado com sucesso!")}
-                    activeOpacity={0.92}
+                        style={styles.actionButton}
+                        onPress={ () => alert("Limite alterado com sucesso!")}
+                        activeOpacity={0.92}
                     >
                         <Texto tipo = 'negrito' style={styles.actionText}> Confirmar alteração</Texto>
                     </TouchableOpacity>
@@ -31,21 +38,32 @@ export function ModalLimite({handleClose}) {
         </SafeAreaView>
     );
 }
+//const[limite, setLimite] = useState(usuarioTest.limiteMaximo);
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
     },
     content: {
-        marginVertical: 300,
+        flexDirection: "column",
+        alignItems: "center",
         marginLeft: 10,
-        marginRight: 10,
-
+        marginRight: 12,
+        marginVertical: 600,
+        backgroundColor: "#0B4B54",
+        height: 245,
+        width: dimensao.largura,
+        borderRadius: 50,
     },
     actionButton: { //style do botão 'confirmar alteração'
         zIndex:99,
+        flexDirection: "column",
+        alignContent: "center",
+        width: dimensao.largura/1.5,
         backgroundColor: '#59D9DA',
-        borderRadius: 6,
+        borderRadius: 50,
         marginTop: 8,
         padding: 8,
         borderWidth: 1,
@@ -59,23 +77,25 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.28,
         shadowRadius: 4,
     },
-    creditButton: { //style do botão 'confirmar alteração'
-        zIndex:99,
-        backgroundColor: '#59D9DA',
-        borderRadius: 6,
-        marginTop: 8,
-        padding: 8,
-       
-    },
     actionText: {
         textAlign: "center",
         fontSize: 20,
         color: '#0B4B54',
     },
-    editText: {
+    editText: { //texto do 'insira o valor desejado'
         textAlign: "center",
         fontSize: 20,
         //color: '#bfbfbf',  cor depois de o fundo virar branco
-        color: '#0B4B54',
+        color: '#fff',
+    },
+    input: {
+        height: 44,
+        width: 328,
+
+        margin:10,
+        backgroundColor: '#fff',
+        fontSize: 20,
+        borderRadius: 10,
+        padding: 10,
     }
 })
