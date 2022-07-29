@@ -1,6 +1,6 @@
 import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import {useFonts, Quicksand_400Regular, Quicksand_500Medium, Quicksand_700Bold} from '@expo-google-fonts/quicksand';
-import { DebtRegistration } from './src/views/DebtRegistration';
+import { DebtEditing } from './src/views/DebtEditing';
  
 export default function App() {
   const[fonteCarregada] = useFonts({
@@ -21,7 +21,7 @@ export default function App() {
   });
   return (
     <SafeAreaView style={styles.container}>
-          <DebtRegistration />
+          <DebtEditing />
     </SafeAreaView>
   );
 }
