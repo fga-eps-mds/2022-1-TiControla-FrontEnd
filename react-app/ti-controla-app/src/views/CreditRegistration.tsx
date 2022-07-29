@@ -9,7 +9,7 @@ import React from "react";
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 82 : 64;
 
-export const DebtEditing = () => {
+export const CreditRegistration = () => {
 	const [fonteCarregada] = useFonts({
 		'QuicksandRegular': Quicksand_400Regular,
 		'QuicksandMedium': Quicksand_500Medium,
@@ -25,7 +25,7 @@ export const DebtEditing = () => {
 			</TouchableOpacity>
 			<StatusBar backgroundColor="#0B4B53" />
 			<SafeAreaView >
-				<Texto tipo='negrito' style={styles.titulo}>Edição de débito</Texto>
+				<Texto tipo='negrito' style={styles.titulo}>Cadastro de crédito</Texto>
 				<View style={styles.form}>
 
 					<Texto tipo='normal' style={styles.texto}>Data:</Texto>
