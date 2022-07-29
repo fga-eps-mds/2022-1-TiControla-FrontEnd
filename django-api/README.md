@@ -22,9 +22,17 @@ a biblioteca que eu uso é "pip install httpie". mas tbm dá para usar postman, 
 # fazer login (salvar o sessionid para usar depois)
 http POST :8000/login/ username=root password=pass
 
-# pegar dados do usuario logado (email, primeiro nome, ultimo nome, data de criação do usuário)
+# mostrar dados do usuario logado (email, primeiro nome, ultimo nome, data de criação do usuário)
 http GET :8000/profile/ Cookie:sessionid=fass5awxhmwihlf785pboklgcy5je2bb
 
-# pegar dados do usuario logado (limite maximo, limite disponivel, saldo)
+# mostrar dados do usuario logado (limite maximo, limite disponivel, saldo)
 http GET :8000/profile_data/ Cookie:sessionid=fass5awxhmwihlf785pboklgcy5je2bb
+
+# TODO: criar/atualizar dados do usuario logado (email, primeiro nome, ultimo nome)
+# TODO: criar/atualizar dados do usuario logado (limite maximo, limite disponivel, saldo)
+
+# link útil para resolver os TODOs: https://www.django-rest-framework.org/api-guide/generic-views/
+
+
+
 ```
