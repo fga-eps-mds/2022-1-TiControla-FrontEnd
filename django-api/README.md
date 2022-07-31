@@ -11,29 +11,25 @@ touch .env
 docker-compose up --build
 ```
 
-## Como fazer requisições HTTP para a API usando httpie
-A biblioteca httpie não é necessária. Fique à vontade para usar a ferramenta de sua preferência (como postman ou swagger).
+## Como fazer requisições HTTP para a API usando cURL
+A biblioteca cURL não é necessária. Para converter um comando cURL para uma linguagem de programação (como javascript), use o site <https://curlconverter.com/#javascript>. Para fins de debugging, além do cURL, por exemplo, existem as ferramentas httpie e postman.
 ```
-# instale a biblioteca
-pip install httpie
-
 # criar usuário (não superusuário)
-http POST :8000/register/ username=myusername password=pass
+curl -H "Content-Type: application/json" -X POST --data '{"username":"myusername", "password":"pass"}' "localhost:8000/register/"
 
-# fazer login (é necessário salvar o sessionid para usar depois)
-http POST :8000/login/ username=myusername password=pass
+# fazer login (é necessário salvar o valor do sessionid e o do csrftoken para usar depois)
+curl -v -H "Content-Type: application/json" -X POST --data '{"username":"myusername", "password":"pass"}' "localhost:8000/login/"
 
 # mostrar dados do usuario logado (email, primeiro nome, ultimo nome, data de criação do usuário)
-http GET :8000/profile/ Cookie:sessionid=q2qkjpgsjhwqzjmlu6irtypq7clbw63r
+curl -H "Cookie: sessionid=[sessionid];" -X GET 'localhost:8000/profile/'
 
 # criar dados do usuário logado relacionados a finanças
-http POST :8000/profile/data/create/ Cookie:sessionid=q2qkjpgsjhwqzjmlu6irtypq7clbw63r username=myusername saldo=1000 limite_maximo=3000 limite_disponivel=2500
+curl -H "Cookie: csrftoken=[csrftoken];sessionid=[sessionid];" -H "X-CSRFToken: [csrftoken]" -X POST --data 'username=myusername&saldo=1000&limite_maximo=3000&limite_disponivel=2500' 'localhost:8000/profile/data/'
 
 # mostrar dados do usuário logado relacionados a finanças (username, saldo, limite_maximo, limite_disponivel)
-http GET :8000/profile/data/ Cookie:sessionid=q2qkjpgsjhwqzjmlu6irtypq7clbw63r username=myusername
+curl -H "Cookie: sessionid=[sessionid];" -X GET --data 'username=myusername' 'localhost:8000/profile/data/'
 
 # atualizar dados do usuário logado relacionados a finanças
-http PUT :8000/profile/data/ Cookie:sessionid=q2qkjpgsjhwqzjmlu6irtypq7clbw63r username=myusername saldo=1000 limite_maximo=3000 limite_disponivel=2500
+curl -H "Cookie: csrftoken=[csrftoken];sessionid=[sessionid];" -H "X-CSRFToken: [csrftoken]" -X PUT --data 'username=myusername&saldo=999&limite_disponivel=1500' 'localhost:8000/profile/data/'
 
-http PATCH :8000/profile/data/ Cookie:sessionid=q2qkjpgsjhwqzjmlu6irtypq7clbw63r username=myusername saldo=1000 limite_maximo=3000 limite_disponivel=2500
-```
+curl -H "Cookie: csrftoken=[csrftoken];sessionid=[sessionid];" -H "X-CSRFToken: [csrftoken]" -X PATCH --data 'username=myusername&limite_maximo=7000&limite_disponivel=1500' 'localhost:8000/profile/data/'
