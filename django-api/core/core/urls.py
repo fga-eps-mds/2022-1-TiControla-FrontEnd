@@ -28,6 +28,7 @@ from user_data import viewsets as user_data_viewsets
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include(route.urls))
+    path('register/', user_viewsets.RegisterView.as_view()),  # sign up
     path('login/', user_viewsets.LoginView.as_view()),
     path('profile/', user_viewsets.ProfileView.as_view()),
     path('profile_data/', user_data_viewsets.UserDataView.as_view()),

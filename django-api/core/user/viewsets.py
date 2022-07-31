@@ -7,7 +7,7 @@
 #     serializer_class = serializers.UserSerializer
 #     queryset = models.User.objects.all()
 
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, get_user_model
 
 from rest_framework import generics
 from rest_framework import permissions
@@ -16,6 +16,7 @@ from rest_framework import views
 from rest_framework.response import Response
 
 from user import serializers
+
 
 class LoginView(views.APIView):
     # This view should be accessible also for unauthenticated users.
@@ -42,3 +43,13 @@ class ProfileView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+# TODO: averiguar (e talvez aumentar) a segurança desta view
+class RegisterView(views.APIView):
+    # This view should be accessible also for unauthenticated users.
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, format=None):
+        get_user_model().objects.create_user(**request.data)
+        return Response(None, status=status.HTTP_202_ACCEPTED)
