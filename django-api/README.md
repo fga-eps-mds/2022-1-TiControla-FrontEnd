@@ -8,7 +8,7 @@ cd 2022-1-TiControla/django-api
 touch .env
 
 # rode o container
-docker-compose up --build
+sudo docker-compose up --build
 ```
 
 ## Como fazer requisições HTTP para a API usando cURL
