@@ -9,6 +9,7 @@ services:
       sh -c "python manage.py flush --no-input &&
            python manage.py makemigrations user_data &&
            python manage.py migrate &&
+           DJANGO_SUPERUSER_PASSWORD=pass ./manage.py createsuperuser --no-input --username=root --email=leonardomichalskim@gmail.com &&
            python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
