@@ -31,5 +31,6 @@ urlpatterns = [
     path('register/', user_viewsets.RegisterView.as_view()),  # sign up
     path('login/', user_viewsets.LoginView.as_view()),
     path('profile/', user_viewsets.ProfileView.as_view()),
-    path('profile_data/', user_data_viewsets.UserDataView.as_view()),
+    path('profile/data/', user_data_viewsets.UserDataView.as_view()),
+    path('profile/data/create/', user_data_viewsets.CreateUserDataView.as_view()),
 ]
