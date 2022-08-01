@@ -12,12 +12,12 @@ import DebitoLancamentos from '../../views/debitoLancamentos';
 import CadastroLancamentoDebito from '../../views/debitoLancamentos/views/cadastroLancamentoDebito';
 import DebitoDetalhamento from '../../views/debitoLancamentos/views/debitoDetalhamento';
 import EdicaoLancamentoDebito from '../../views/debitoLancamentos/views/edicaoLancamentoDebito';
-import Home from '../../views/home';
+import Home from '../../views/Home';
 import Login from '../../views/login';
 import Profile from '../../views/profile';
 import Texto from '../../components/Texto'
 import { RootStackParamList } from '../types/RootStack';
-import arrow_back from '../../assets/icons/arrow_back.png'
+import arrow_back from '../../assets/icons/arrow_back.png';
 import GastosFixos from '../../views/gastosFixos';
 
 export default function Navigation(){
