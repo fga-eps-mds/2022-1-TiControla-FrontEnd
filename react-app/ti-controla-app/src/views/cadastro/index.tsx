@@ -15,6 +15,7 @@ import React from "react";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { style } from "@mui/system";
+import { config } from "../../application/config/url";
 
 const schema = yup.object({
     nome: yup.string().required("Informe o seu nome!"),
@@ -28,9 +29,14 @@ export default function Cadastro() {
     const {control, handleSubmit, formState: { errors}} = useForm({
         resolver: yupResolver(schema)
     });
+    const { backendBaseServer } = config;
 
     const submitHandler = (data : any) => {
-      console.log(data);
+        fetch(backendBaseServer + 'register/',{
+            method: 'POST',
+            headers:{'Content-Type':'application/json'},
+            body:data
+        }).then(response => response.json()).then((json) => { console.log(json)}).catch(e => {console.log(e)});
     }
 
   return (
