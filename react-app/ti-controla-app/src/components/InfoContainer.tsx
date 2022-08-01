@@ -1,3 +1,4 @@
+import React from "react";
 import { ViewProps, View, StyleSheet} from "react-native";
 import { dimensao } from "../utils/dimensoesDoDipositivo";
 

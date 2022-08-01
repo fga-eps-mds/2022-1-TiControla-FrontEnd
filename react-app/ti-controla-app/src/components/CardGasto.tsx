@@ -1,4 +1,5 @@
-import { View, StyleSheet, Touchable, TouchableOpacity, Image } from "react-native";
+import React from "react";
+import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { icones } from "../application/icons/iconesDeCategoria";
 import { Lancamento } from "../application/types/Lancamento";
 import { dimensao } from "../utils/dimensoesDoDipositivo";
