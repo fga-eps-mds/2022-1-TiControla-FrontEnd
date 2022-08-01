@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useForm, Controller} from 'react-hook-form';
 
 import {
   Image,
@@ -11,23 +12,25 @@ import Texto from "../../components/Texto";
 import logo from "../../assets/icons/logo.png";
 import { dimensao } from "../../utils/dimensoesDoDipositivo";
 import React from "react";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { style } from "@mui/system";
+
+const schema = yup.object({
+    nome: yup.string().required("Informe o seu nome!"),
+    email: yup.string().email("E-mail inválido!").required("Informe o seu endereço de email!"),
+    celular: yup.number().required("Informe o seu contato!"),
+    senha: yup.string().min(4,"Insira uma senha com mais de 4 dígitos").required("Informe a sua senha!"),
+});
 
 export default function Cadastro() {
-    
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [celular, setCelular] = useState('');
-    const [senha, setSenha] = useState('');
 
-    
+    const {control, handleSubmit, formState: { errors}} = useForm({
+        resolver: yupResolver(schema)
+    });
 
-    const btnHandler = () => {
-        const dados = {
-            nome,email,senha
-        };
-
-       
-        console.log(dados);
+    const submitHandler = (data : any) => {
+      console.log(data);
     }
 
   return (
@@ -36,15 +39,94 @@ export default function Cadastro() {
         <Image source={logo} style={estilos.logo}></Image>
         <View style={estilos.formulario}>
           <Texto style={estilos.label}>Email:</Texto>
-          <TextInput  value={email}  onChangeText={setEmail}  keyboardType="email-address" style={estilos.input} />
-          <Texto style={estilos.label}>Nome:</Texto>
-          <TextInput value={nome}   onChangeText={setNome}  style={estilos.input} />
-          <Texto style={estilos.label}>Celular:</Texto>
-          <TextInput  value={celular}  onChangeText={setCelular}  keyboardType="name-phone-pad" style={estilos.input} />
-          <Texto style={estilos.label}>Senha:</Texto>
-          <TextInput value={senha}  onChangeText={setSenha}  keyboardType="visible-password" style={estilos.input} />
+          <Controller
+                control={control}
+                name='email'
+                render = {
+                    ({field : {onBlur,onChange,value}}) => (
+                        <TextInput
+                            value={value}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            style={[estilos.input, 
+                                {
+                                    borderWidth: errors.email && 1,
+                                    borderColor: errors.email && 'red'
+                                }]}
+                            keyboardType="email-address" 
+                            placeholder='Insira o e-mail' />
+                    )
+                }
+            />
+                  {errors.email && <Texto style={estilos.erro}>{errors.email?.message}</Texto>}
+            
+            <Texto style={estilos.label}>Nome:</Texto>
+            <Controller
+                control={control}
+                name='nome'
+                render={
+                    ({ field: { onBlur, onChange, value } }) => (
+                        <TextInput
+                            value={value}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            style={[estilos.input,
+                            {
+                                borderWidth: errors.nome && 1,
+                                borderColor: errors.nome && 'red'
+                            }]}
+                            placeholder='Insira o nome completo' />
+                    )
+                }
+            />
+            {errors.nome && <Texto style={estilos.erro}>{errors.nome?.message}</Texto>}
+
+            <Texto style={estilos.label}>Celular:</Texto>
+            <Controller
+                control={control}
+                name='celular'
+                render={
+                    ({ field: { onBlur, onChange, value } }) => (
+                        <TextInput
+                            value={value}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            style={[estilos.input,
+                            {
+                                borderWidth: errors.celular && 1,
+                                borderColor: errors.celular && 'red'
+                            }]}
+                            keyboardType="name-phone-pad"
+                            placeholder='Insira o contato' />
+                    )
+                }
+            />
+            {errors.celular && <Texto style={estilos.erro}>{errors.celular?.message}</Texto>}
+
+            <Texto style={estilos.label}>Senha:</Texto>
+            <Controller
+                control={control}
+                name='senha'
+                render={
+                    ({ field: { onBlur, onChange, value } }) => (
+                        <TextInput
+                            value={value}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            style={[estilos.input,
+                            {
+                                borderWidth: errors.senha && 1,
+                                borderColor: errors.senha && 'red'
+                            }]}
+                            secureTextEntry={true}
+                            placeholder='Insira a senha' />
+                    )
+                }
+            />
+            {errors.senha && <Texto style={estilos.erro}>{errors.celular?.message}</Texto>}
+
         </View>
-              <Botao onPress={btnHandler}
+              <Botao onPress={handleSubmit(submitHandler)}
           tipo="grande"
           cor="verde"
           style={{ marginTop: 24 }}
@@ -75,6 +157,12 @@ const estilos = StyleSheet.create({
     color: "#fff",
     marginBottom: 1,
   },
+    erro: {
+        fontSize: 14,
+        marginLeft: 5,
+        color: "red",
+        marginBottom: 1,
+    },
   input: {
     backgroundColor: "#fff",
     height: 44,
