@@ -33,8 +33,8 @@ const getEstilos = (tipo: 'grande' | 'pequeno', cor: 'verde' | 'vermelho') =>
       justifyContent: 'center',
       backgroundColor: cor === 'verde'? '#59D9DA' : '#DA6159',
       borderRadius: 30,
-      width: tipo === 'grande'? 246 : 126,
-      height: tipo === 'grande' ? 50: 30,
+      width: tipo === 'grande'? 286 : 126,
+      height: tipo === 'grande' ? 60: 30,
     },
     botaoTexto: {
       color: cor === 'verde'?  '#0B4B54' : '#000',
