@@ -28,11 +28,9 @@ const estilos = StyleSheet.create({
   textoMedio: {
     fontFamily: 'QuicksandMedium',
     fontWeight: 'normal',
-    fontSize: 18,
   },
   textoNegrito: {
     fontFamily: 'QuicksandBold',
     fontWeight: 'normal',
-    fontSize: 22,
   }
 });

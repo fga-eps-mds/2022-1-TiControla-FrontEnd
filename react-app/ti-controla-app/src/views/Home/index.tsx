@@ -1,3 +1,4 @@
+import React from "react";
 import InfoContainer from "../../components/InfoContainer";
 import Header from "./components/Header";
 import { View, StyleSheet, ScrollView } from "react-native";

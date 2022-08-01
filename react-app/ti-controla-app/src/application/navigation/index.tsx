@@ -1,3 +1,4 @@
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator, NativeStackHeaderProps} from '@react-navigation/native-stack'
 import { Image, StyleSheet, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
@@ -13,6 +14,7 @@ import DebitoDetalhamento from '../../views/debitoLancamentos/views/debitoDetalh
 import EdicaoLancamentoDebito from '../../views/debitoLancamentos/views/edicaoLancamentoDebito';
 import Home from '../../views/home';
 import Login from '../../views/login';
+import Profile from '../../views/profile';
 import Texto from '../../components/Texto'
 import { RootStackParamList } from '../types/RootStack';
 import arrow_back from '../../assets/icons/arrow_back.png'
@@ -34,6 +36,7 @@ function RootNavigator(){
         <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
         <Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
         <Stack.Screen name='Cadastro' component={Cadastro} options={{headerShown: false}}/>
+        <Stack.Screen name='Perfil' component={Profile} options={{headerShown: false}}/>
         <Stack.Screen name='DebitoLancamentos' component={DebitoLancamentos} options={{headerTitle: 'Lançamentos de débitos'}}/>
         <Stack.Screen name='DebitoDetalhamento' component={DebitoDetalhamento} options={{headerTitle: 'Detalhamento de débito'}}/>
         <Stack.Screen name='EdicaoLancamentoDebito' component={EdicaoLancamentoDebito} options={{headerTitle: 'Edição de débito'}}/>

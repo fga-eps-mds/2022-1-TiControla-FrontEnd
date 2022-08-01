@@ -8,6 +8,7 @@ import Botao from "../../components/Botao";
 import Texto from "../../components/Texto";
 import logo from "../../assets/icons/logo.png";
 import { dimensao } from "../../utils/dimensoesDoDipositivo";
+import React from "react";
 
 export default function Cadastro() {
   return (

@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 import { Usuario } from '../../../application/types/Usuario';
@@ -7,6 +8,7 @@ import logoutIcon from '../../../assets/icons/logout.png';
 import profileIcon from '../../../assets/icons/profile.png';
 import { dimensao } from '../../../utils/dimensoesDoDipositivo';
 import Monetario from '../../../components/Monetario';
+import { usuarioTeste } from '../../../application/mocks/usuarioTeste';
 
 export default function Header({nome, saldo, id}: Usuario) {
   const navigation = useNavigation();
@@ -23,7 +25,7 @@ export default function Header({nome, saldo, id}: Usuario) {
           <Menu idUsuario={id}/>
         </View>
         <TouchableOpacity style={estilos.lougoutIcon} onPress={() => navigation.navigate('Login')}><Image source={logoutIcon} width={32} height={32}/></TouchableOpacity>
-        <TouchableOpacity style={estilos.profileIcon}><Image source={profileIcon} width={32} height={32}/></TouchableOpacity>
+        <TouchableOpacity style={estilos.profileIcon} onPress={() => navigation.navigate('Perfil', {usuario: usuarioTeste})}><Image source={profileIcon} width={32} height={32}/></TouchableOpacity>
       </View>
     </View>
   );
