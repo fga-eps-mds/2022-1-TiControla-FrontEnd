@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Image,
   View,
@@ -11,21 +13,38 @@ import { dimensao } from "../../utils/dimensoesDoDipositivo";
 import React from "react";
 
 export default function Cadastro() {
+    
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [celular, setCelular] = useState('');
+    const [senha, setSenha] = useState('');
+
+    
+
+    const btnHandler = () => {
+        const dados = {
+            nome,email,senha
+        };
+
+       
+        console.log(dados);
+    }
+
   return (
     <View style={estilos.container}>
       <View style={{alignItems: 'center'}}>
         <Image source={logo} style={estilos.logo}></Image>
         <View style={estilos.formulario}>
           <Texto style={estilos.label}>Email:</Texto>
-          <TextInput keyboardType="email-address" style={estilos.input} />
+          <TextInput  value={email}  onChangeText={setEmail}  keyboardType="email-address" style={estilos.input} />
           <Texto style={estilos.label}>Nome:</Texto>
-          <TextInput style={estilos.input} />
+          <TextInput value={nome}   onChangeText={setNome}  style={estilos.input} />
           <Texto style={estilos.label}>Celular:</Texto>
-          <TextInput keyboardType="name-phone-pad" style={estilos.input} />
+          <TextInput  value={celular}  onChangeText={setCelular}  keyboardType="name-phone-pad" style={estilos.input} />
           <Texto style={estilos.label}>Senha:</Texto>
-          <TextInput keyboardType="visible-password" style={estilos.input} />
+          <TextInput value={senha}  onChangeText={setSenha}  keyboardType="visible-password" style={estilos.input} />
         </View>
-        <Botao
+              <Botao onPress={btnHandler}
           tipo="grande"
           cor="verde"
           style={{ marginTop: 24 }}
