@@ -33,13 +33,15 @@ export default function Cadastro() {
     const { backendBaseServer } = config;
 
     const submitHandler = (data : any) => {
-        delete data['celular'];
-        delete data['nome'];
-        fetch(backendBaseServer + 'register/',{
-            method: 'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(data)
-        }).then(response => response.json()).then((json) => { console.log('Usuário cadastrado com sucesso !') }).catch(e => { console.log(e) });
+      // data['first_name'] = data['nome'];
+      delete data['nome'];
+      delete data['celular'];
+      console.log(backendBaseServer + 'register/');
+      fetch(backendBaseServer + 'register/',{
+        method: 'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      }).then(result => { console.log(result); }).catch(e => { console.log(e); });
     }
 
   return (

@@ -9,6 +9,8 @@ import ModalLimite from "./components/ModalLimite";
 import { Usuario } from "../../application/types/Usuario";
 import Monetario from "../../components/Monetario";
 import {limiteNovo} from "./components/ModalLimite";
+import { config } from "../../application/config/url";
+import AsyncStorage from "@react-native-community/async-storage";
 
 
 export default function Profile({
@@ -26,6 +28,41 @@ export default function Profile({
   })
 
   const[visibleModal, setVisibleModal] = useState(false);
+  const { backendBaseServer } = config;
+  const [user, setUser] = useState([]);
+
+  try {
+    let sessionid = AsyncStorage.getItem("sessionid");
+    // let csrftoken = AsyncStorage.getItem("csrftoken");
+    // console.log(value);
+    if (sessionid !== null) {
+
+      fetch(backendBaseServer + 'profile/', {
+          headers: {
+              'Content-Type': 'application/json',
+              'Cookie': sessionid
+          }
+      }).then(function (response) {
+          return response.json();
+      }).then(function (data) {
+          let userData = data
+          setUser(userData);
+          console.log("Data is ok", data);
+      }).catch(function (ex) {
+          console.log("parsing failed", ex);
+      });
+
+
+    }
+  } catch (error) {
+    // Error retrieving data
+    console.log("Dashboard get data user error", error);
+  }
+
+  function handleExit() {
+    AsyncStorage.clear();
+  }
+
 
   if(!fonteCarregada) return <View/>
 
@@ -39,12 +76,12 @@ export default function Profile({
             </View>
 
             <View style={styles.infos}>
-                <Texto tipo = 'medio' style={styles.infoTitle}> Email:</Texto>
-                <Texto tipo = 'medio' style={styles.infoTitle}> fulano@gmail.com</Texto>
+                <Texto tipo = 'medio' style={styles.infoTitle}> Nome de usuário:</Texto>
+                <Texto tipo = 'medio' style={styles.infoTitle}> {user.username}</Texto>
 
-                <Texto tipo = 'medio' style={styles.infoTitle}> Celular:</Texto>
-                <Texto tipo = 'medio' style={styles.infoTitle}> 4002-8922</Texto>
-                
+                <Texto tipo = 'medio' style={styles.infoTitle}> Email:</Texto>
+                <Texto tipo = 'medio' style={styles.infoTitle}> {user.email}</Texto>
+
                 <Texto tipo = 'medio' style={styles.infoTitle}> Limite de crédito:</Texto>
                 <Texto tipo = 'medio' style={styles.infoTitle}>
                     <Monetario tipo="medio">

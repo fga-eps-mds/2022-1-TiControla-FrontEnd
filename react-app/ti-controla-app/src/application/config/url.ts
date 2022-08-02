@@ -1,3 +1,3 @@
 export const config = {
-    backendBaseServer: 'http://172.31.251.36:8000/'
+    backendBaseServer: 'http://192.168.0.60:8000/'
 } 

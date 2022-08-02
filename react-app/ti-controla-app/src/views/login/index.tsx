@@ -18,11 +18,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { style } from "@mui/system";
 import { config } from "../../application/config/url";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const schema = yup.object({
     username: yup.string().required("Informe o seu nome de usuário!"),
     password: yup.string().min(4, "Insira uma password com mais de 4 dígitos").required("Informe a sua password!"),
 });
+let csrftoken;
+let sessionid;
 
 export default function Login({ navigation }: RootStackScreenProps<"Login">) {
 
@@ -33,22 +36,33 @@ export default function Login({ navigation }: RootStackScreenProps<"Login">) {
     const handleLogin = (data : any) => {
 
         console.log(JSON.stringify(data), backendBaseServer + 'login/');
+
         fetch(backendBaseServer + 'login/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        }).then(
-            response => response.json()
-            ).then((json) => {
-                console.log(json);
-            }).catch(e => {
-                console.log(e)
-            });
-            
-        // navigation.navigate("Home", {
-        //     usuario: usuarioTeste,
-        //     id: usuarioTeste.id,
-        // });
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then(result => {
+          if (result.status == 202) {
+            csrftoken = result.headers.get('set-cookie').split(';')[0].split('token=')[1];  // csrftoken
+            sessionid = result.headers.get('set-cookie').split(';')[4].split('sessionid=')[1];  // sessionid
+            csrftoken = 'csrftoken=' + csrftoken + ';';
+            sessionid = 'sessionid=' + sessionid + ';';
+            AsyncStorage.setItem(
+              "csrftoken", csrftoken
+            );
+            AsyncStorage.setItem(
+              "sessionid", sessionid
+            );
+          }
+          navigation.navigate("Home", {
+              usuario: usuarioTeste,
+              id: usuarioTeste.id,
+          });
+        }).catch(e => {
+          console.log(e);
+        });
     }
   return (
     <View style={estilos.container}>
