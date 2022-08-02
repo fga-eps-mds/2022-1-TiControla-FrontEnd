@@ -19,9 +19,10 @@ import { config } from "../../application/config/url";
 
 const schema = yup.object({
     nome: yup.string().required("Informe o seu nome!"),
+    username: yup.string().required("Informe o seu nome de usuário!"),
     email: yup.string().email("E-mail inválido!").required("Informe o seu endereço de email!"),
     celular: yup.number().required("Informe o seu contato!"),
-    senha: yup.string().min(4,"Insira uma senha com mais de 4 dígitos").required("Informe a sua senha!"),
+    password: yup.string().min(4,"Insira uma password com mais de 4 dígitos").required("Informe a sua password!"),
 });
 
 export default function Cadastro() {
@@ -32,11 +33,13 @@ export default function Cadastro() {
     const { backendBaseServer } = config;
 
     const submitHandler = (data : any) => {
+        delete data['celular'];
+        delete data['nome'];
         fetch(backendBaseServer + 'register/',{
             method: 'POST',
             headers:{'Content-Type':'application/json'},
-            body:data
-        }).then(response => response.json()).then((json) => { console.log(json)}).catch(e => {console.log(e)});
+            body: JSON.stringify(data)
+        }).then(response => response.json()).then((json) => { console.log('Cadastrado') }).catch(e => { console.log(e) }).finally(() => { alert('Usuário cadastrado com sucesso !')});
     }
 
   return (
@@ -86,6 +89,26 @@ export default function Cadastro() {
                 }
             />
             {errors.nome && <Texto style={estilos.erro}>{errors.nome?.message}</Texto>}
+                  <Texto style={estilos.label}>Nome de usuário:</Texto>
+                  <Controller
+                      control={control}
+                      name='username'
+                      render={
+                          ({ field: { onBlur, onChange, value } }) => (
+                              <TextInput
+                                  value={value}
+                                  onChangeText={onChange}
+                                  onBlur={onBlur}
+                                  style={[estilos.input,
+                                  {
+                                      borderWidth: errors.username && 1,
+                                      borderColor: errors.username && 'red'
+                                  }]}
+                                  placeholder='Insira o nome de usuário' />
+                          )
+                      }
+                  />
+                  {errors.username && <Texto style={estilos.erro}>{errors.username?.message}</Texto>}
 
             <Texto style={estilos.label}>Celular:</Texto>
             <Controller
@@ -112,7 +135,7 @@ export default function Cadastro() {
             <Texto style={estilos.label}>Senha:</Texto>
             <Controller
                 control={control}
-                name='senha'
+                name='password'
                 render={
                     ({ field: { onBlur, onChange, value } }) => (
                         <TextInput
@@ -121,15 +144,15 @@ export default function Cadastro() {
                             onBlur={onBlur}
                             style={[estilos.input,
                             {
-                                borderWidth: errors.senha && 1,
-                                borderColor: errors.senha && 'red'
+                                borderWidth: errors.password && 1,
+                                borderColor: errors.password && 'red'
                             }]}
                             secureTextEntry={true}
                             placeholder='Insira a senha' />
                     )
                 }
             />
-            {errors.senha && <Texto style={estilos.erro}>{errors.celular?.message}</Texto>}
+            {errors.password && <Texto style={estilos.erro}>{errors.celular?.message}</Texto>}
 
         </View>
               <Botao onPress={handleSubmit(submitHandler)}
