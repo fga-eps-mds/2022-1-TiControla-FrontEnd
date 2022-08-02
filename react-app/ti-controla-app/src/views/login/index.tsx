@@ -29,6 +29,7 @@ export default function Login({ navigation }: RootStackScreenProps<"Login">) {
     const { control, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(schema)});
     const { backendBaseServer } = config;
 
+    // parei aqui
     const handleLogin = (data : any) => {
 
         console.log(JSON.stringify(data), backendBaseServer + 'login/');
