@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticontrolaapi
+spec:
+  selector:
+    matchLabels:
+      app: ticontrolaapi
+  template:
+    metadata:
+      labels:
+        app: ticontrolaapi
+    spec:
+      containers:
+      - name: ticontrolaapi
+        image: leommiranda/ti-controla-django-api:latest
+        env:
+        - name: DJANGO_SUPERUSER_PASSWORD
+          value: ${{secrets.DJANGO_SUPERUSER_PASSWORD}}
+        - name: DJANGO_SUPERUSER_USERNAME
+          value: ${{secrets.DJANGO_SUPERUSER_USERNAME}}
+        - name: SECRET_KEY
+          value: ${{secrets.SECRET_KEY}}
+        - name: DEBUG
+          value: "False"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ticontrolaapi
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP  # protocolo padrao
+    port: 80
+    targetPort: 8080
+  selector:
+    # matchLabels:
+    app: ticontrolaapi
