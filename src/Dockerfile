@@ -13,5 +13,7 @@ COPY . /api_src
 
 WORKDIR /api_src
 
+EXPOSE 8080
+CMD ["sh -c 'python manage.py flush --no-input && python manage.py makemigrations user_data && python manage.py migrate && ./manage.py createsuperuser --no-input --username=root --email=leonardomichalskim@gmail.com && python manage.py runserver 0.0.0.0:8080'"]
 # RUN python manage.py migrate
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
