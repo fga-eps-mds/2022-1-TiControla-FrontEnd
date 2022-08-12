@@ -5,15 +5,10 @@ services:
     container_name: api
     restart: always
     build: ./
-    command: >
-      sh -c "python manage.py flush --no-input &&
-           python manage.py makemigrations user_data &&
-           python manage.py migrate &&
-           ./manage.py createsuperuser --no-input --username="${DJANGO_SUPERUSER_USERNAME}" --email=leonardomichalskim@gmail.com &&
-           python manage.py runserver 0.0.0.0:8000"
+    command: "./start.sh"
     ports:
-      - "8000:8000"
-    # env_file:
-    #   - ./.env
+      - "8080:8080"
+    env_file:
+      - ./debug.env
     # volumes:
     #   - .:/core

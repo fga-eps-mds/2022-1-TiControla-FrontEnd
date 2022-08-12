@@ -14,8 +14,6 @@ spec:
       containers:
       - name: ticontrolaapi
         image: leommiranda/ti-controla-django-api:latest
-        ports:
-          - containerPort: 5432
         env:
         - name: DJANGO_SUPERUSER_PASSWORD
           value: ${{secrets.DJANGO_SUPERUSER_PASSWORD}}
@@ -23,18 +21,19 @@ spec:
           value: ${{secrets.DJANGO_SUPERUSER_USERNAME}}
         - name: SECRET_KEY
           value: ${{secrets.SECRET_KEY}}
+        - name: DEBUG
+          value: "False"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: ticontrolaapi
 spec:
-  selector:
-    # matchLabels:
-    app: ticontrolaapi
+  type: LoadBalancer
   ports:
   - protocol: TCP  # protocolo padrao
     port: 80
     targetPort: 8080
-    nodePort: 30000
-  type: LoadBalancer
+  selector:
+    # matchLabels:
+    app: ticontrolaapi
