@@ -1,6 +1,19 @@
-# 2022-1-Squad1 (MDS)
-- Tema do Trabalho: Aplicativo de Finanças Pessoais
-- Número de Encontros: 6
+![Logo TiControla](https://user-images.githubusercontent.com/102192917/184401954-7b7c706b-c287-4c22-83b0-a3039213c627.jpg)
+
+# Visão Geral
+TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usuário, organizando categorias de gastos e o notificando quando um limite é encontrado. 
+
+Estes repositórios são dedicados para o desenvolvimento e contibuição do softare **TiControla**. O repositório principal é o FrontEnd, parente dos repositórios BackEnd e Docs. As issues estão sendo levantadas somente neste repositório.
+
+# Como Contribuir
+
+# Guia de Instalação
+Essa aplicação tem seu ambiente configurado através de conteiners Docker, portanto, tem como pré-requisitos a instalação do Docker e Docker-compose. Também é necessário ter o Git instalado para clonar o repositório.
+
+**Passos de configuração**:
+Clonar o repositório:
+
+  git clone https://github.com/fga-eps-mds/2019.2-Acacia-Frontend.git
 
 # Integrantes do Squad 1
 |Nome|Usuário GitHub|
