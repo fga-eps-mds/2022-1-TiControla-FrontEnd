@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Lancamento } from './Lancamento';
-import { Usuario } from "./Usuario"
+import { Usuario, UsuarioLogado } from "./Usuario"
 
 declare global {
   namespace ReactNavigation {
@@ -11,7 +11,7 @@ declare global {
 export type RootStackParamList = {
     Login: undefined
     Cadastro: undefined
-    Home: {usuario: Usuario, id: string}
+    Home: {usuarioLogado: UsuarioLogado}
     Perfil: {usuario: Usuario}
     DebitoLancamentos: {id: string}
     CreditoLancamentos: {id: string}
