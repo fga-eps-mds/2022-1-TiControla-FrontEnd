@@ -8,3 +8,8 @@ export type Usuario = {
     limiteDisponivel: number,
     totalDasFaturas?: number
 }
+
+export type UsuarioLogado = {
+    csrftoken: string,
+    sessionid: string
+}

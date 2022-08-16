@@ -8,9 +8,11 @@ import CardGasto from "../../components/CardGasto";
 import { lancamentosTeste } from "../../application/mocks/lancamentosTest";
 import Monetario from "../../components/Monetario";
 import { RootStackScreenProps } from "../../application/types/RootStack";
+import { usuarioTeste } from "../../application/mocks/usuarioTeste";
 
 export default function Home({navigation, route}: RootStackScreenProps<'Home'>) {
-  const {usuario, id} = route.params;
+  const {usuarioLogado} = route.params;
+  const usuario = usuarioTeste;
   return (
     <ScrollView>
       <View style={{ alignItems: "center" }}>

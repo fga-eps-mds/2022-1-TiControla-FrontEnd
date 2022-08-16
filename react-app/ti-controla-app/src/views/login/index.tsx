@@ -13,103 +13,126 @@ import Texto from "../../components/Texto";
 import logo from "../../assets/icons/logo.png";
 import { dimensao } from "../../utils/dimensoesDoDipositivo";
 import React from "react";
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { style } from "@mui/system";
 import { config } from "../../application/config/url";
-import AsyncStorage from "@react-native-community/async-storage";
+import { UsuarioLogado } from "../../application/types/Usuario";
+// import AsyncStorage from "@react-native-community/async-storage";
 
 const schema = yup.object({
-    username: yup.string().required("Informe o seu nome de usuário!"),
-    password: yup.string().min(4, "Insira uma password com mais de 4 dígitos").required("Informe a sua password!"),
+  username: yup.string().required("Informe o seu nome de usuário!"),
+  password: yup
+    .string()
+    .min(4, "Insira uma password com mais de 4 dígitos")
+    .required("Informe a sua password!"),
 });
 let csrftoken;
 let sessionid;
 
+function logarUsuario(csrftoken: string, sessionid: string) {
+  const csrftokenUsuario = "csrftoken=" + csrftoken + ";";
+  const sessionidUsuario = "sessionid=" + sessionid + ";";
+  const usuarioLogado: UsuarioLogado = {
+    csrftoken: csrftokenUsuario,
+    sessionid: sessionidUsuario,
+  };
+  return usuarioLogado;
+}
+
 export default function Login({ navigation }: RootStackScreenProps<"Login">) {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+  const { backendBaseServer } = config;
 
-    const { control, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(schema)});
-    const { backendBaseServer } = config;
+  // parei aqui
+  const handleLogin = (data: any) => {
+    console.log(JSON.stringify(data), backendBaseServer + "login/");
 
-    // parei aqui
-    const handleLogin = (data : any) => {
-
-        console.log(JSON.stringify(data), backendBaseServer + 'login/');
-
-        fetch(backendBaseServer + 'login/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }).then(result => {
-          if (result.status == 202) {
-            csrftoken = result.headers.get('set-cookie').split(';')[0].split('token=')[1];  // csrftoken
-            sessionid = result.headers.get('set-cookie').split(';')[4].split('sessionid=')[1];  // sessionid
-            csrftoken = 'csrftoken=' + csrftoken + ';';
-            sessionid = 'sessionid=' + sessionid + ';';
-            AsyncStorage.setItem(
-              "csrftoken", csrftoken
-            );
-            AsyncStorage.setItem(
-              "sessionid", sessionid
-            );
-          }
+    fetch(backendBaseServer + "login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((result) => {
+        let usuario;
+        if (result.status == 202) {
+          csrftoken = result.headers
+            .get("set-cookie")!
+            .split(";")[0]
+            .split("token=")[1];
+          sessionid = result.headers
+            .get("set-cookie")!
+            .split(";")[4]
+            .split("sessionid=")[1];
+          usuario = logarUsuario(csrftoken, sessionid);
           navigation.navigate("Home", {
-              usuario: usuarioTeste,
-              id: usuarioTeste.id,
+            usuarioLogado: usuario,
           });
-        }).catch(e => {
-          console.log(e);
-        });
-    }
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <View style={estilos.container}>
-      <View style={{alignItems: 'center'}}>
+      <View style={{ alignItems: "center" }}>
         <Image source={logo} style={estilos.logo}></Image>
         <View style={estilos.formulario}>
-            <Texto style={estilos.label}>Nome de usuário:</Texto>
-            <Controller
-                control={control}
-                name='username'
-                render={
-                    ({ field: { onBlur, onChange, value } }) => (
-                        <TextInput
-                            value={value}
-                            onChangeText={onChange}
-                            onBlur={onBlur}
-                            style={[estilos.input,
-                            {
-                                borderWidth: errors.username && 1,
-                                borderColor: errors.username && 'red'
-                            }]}
-                            placeholder='Insira o nome de usuário' />
-                    )
-                }
-            />
-            {errors.username && <Texto style={estilos.erro}>{errors.username?.message}</Texto>}
-            <Texto style={estilos.label}>Senha:</Texto>
-            <Controller
-                control={control}
-                name='password'
-                render={
-                    ({ field: { onBlur, onChange, value } }) => (
-                        <TextInput
-                            value={value}
-                            onChangeText={onChange}
-                            onBlur={onBlur}
-                            style={[estilos.input,
-                            {
-                                borderWidth: errors.password && 1,
-                                borderColor: errors.password && 'red'
-                            }]}
-                            secureTextEntry={true}
-                            placeholder='Insira a senha' />
-                    )
-                }
-            />
-            {errors.password && <Texto style={estilos.erro}>{errors.celular?.message}</Texto>}
+          <Texto style={estilos.label}>Nome de usuário:</Texto>
+          <Controller
+            control={control}
+            name="username"
+            render={({ field: { onBlur, onChange, value } }) => (
+              <TextInput
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                style={[
+                  estilos.input,
+                  {
+                    borderWidth: errors.username && 1,
+                    borderColor: errors.username && "red",
+                  },
+                ]}
+                placeholder="Insira o nome de usuário"
+              />
+            )}
+          />
+          {errors.username && (
+            <Texto style={estilos.erro}>{errors.username?.message}</Texto>
+          )}
+          <Texto style={estilos.label}>Senha:</Texto>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { onBlur, onChange, value } }) => (
+              <TextInput
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                style={[
+                  estilos.input,
+                  {
+                    borderWidth: errors.password && 1,
+                    borderColor: errors.password && "red",
+                  },
+                ]}
+                secureTextEntry={true}
+                placeholder="Insira a senha"
+              />
+            )}
+          />
+          {errors.password && (
+            <Texto style={estilos.erro}>{errors.celular?.message}</Texto>
+          )}
         </View>
         <Botao
           tipo="grande"
@@ -124,7 +147,7 @@ export default function Login({ navigation }: RootStackScreenProps<"Login">) {
             Esqueci a minha senha
           </Texto>
         </TouchableOpacity>
-        <TouchableOpacity  onPress={() => navigation.navigate('Cadastro')}>
+        <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
           <Texto tipo="negrito" style={estilos.naoPossuoConta}>
             Não possuo conta
           </Texto>
@@ -139,7 +162,7 @@ const estilos = StyleSheet.create({
     backgroundColor: "#0B4B54",
     height: "100%",
     alignItems: "center",
-    justifyContent: 'center'
+    justifyContent: "center",
   },
   logo: {
     marginBottom: 8,
