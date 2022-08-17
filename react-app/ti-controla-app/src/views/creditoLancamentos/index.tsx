@@ -1,6 +1,7 @@
 import { RootStackScreenProps } from "../../application/types/RootStack";
 import Botao from "../../components/Botao";
 import { lancamentosTeste } from "../../application/mocks/lancamentosTest";
+import React from "react";
 
 
 export default function CreditoLancamentos({ navigation, route }: RootStackScreenProps<"CreditoLancamentos">) {
