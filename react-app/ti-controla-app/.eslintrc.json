@@ -1,4 +1,9 @@
 {
+     "settings": {
+    "react": {
+         "version": "detect"
+        }
+    },
     "env": {
         "browser": true,
         "es2021": true
@@ -28,6 +33,8 @@
         "react-native/no-inline-styles": 1,
         "react-native/no-raw-text": 1,
         "react-native/no-single-element-style-arrays": 1,
+        "react-native/no-raw-text": 0,
+        "react/react-in-jsx-scope" : 0,
         "indent": [
             "error",
             "tab"
