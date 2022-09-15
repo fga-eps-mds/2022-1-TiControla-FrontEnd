@@ -51,18 +51,18 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 
 	// parei aqui
 	const handleLogin = (data: any) => {
-		console.log(JSON.stringify(data), backendBaseServer + 'login/');
-
 		fetch(backendBaseServer + 'login/', {
 			method: 'POST',
+			credentials: 'include',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(data),
 		})
 			.then((result) => {
+				console.log(result.status,data);
 				let usuario;
-				if (result.status == 202) {
+				if (result.status == 200) {
 					csrftoken = result.headers
 						.get('set-cookie')!
 						.split(';')[0]
@@ -71,6 +71,7 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 						.get('set-cookie')!
 						.split(';')[4]
 						.split('sessionid=')[1];
+					console.log(csrftoken,sessionid);
 					usuario = logarUsuario(csrftoken, sessionid);
 					navigation.navigate('Home', {
 						usuarioLogado: usuario,
@@ -78,8 +79,10 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 				}
 				return result.json();
 			}).then( resultData => {
-				alert(resultData['non_field_errors'][0]);
-				console.log(resultData);
+				if(resultData['non_field_errors'][0]) 
+				{
+					alert(resultData['non_field_errors'][0]);
+				}
 			})
 			.catch((e) => {
 				console.log(e);
