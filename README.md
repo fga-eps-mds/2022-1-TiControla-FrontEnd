@@ -12,7 +12,7 @@ Essa aplicação tem seu ambiente configurado através de conteiners Docker, por
 
 **Passos de configuração**:
 Clonar o repositório:
-
+dsadasdasd
   <code>git clone https://github.com/fga-eps-mds/2022-1-TiControla-FrontEnd.git</code>
 
 # Integrantes do Squad 1
