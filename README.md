@@ -5,7 +5,7 @@ TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usu
 
 Estes repositórios são dedicados para o desenvolvimento e contibuição do software **TiControla**. O repositório principal é o FrontEnd, parente dos repositórios BackEnd e Docs. As issues estão sendo levantadas somente neste repositório.
 
-# Como Contribuir
+# Como Contribuirdasdasda
 
 # Guia de Instalação
 Essa aplicação tem seu ambiente configurado através de conteiners Docker, portanto, tem como pré-requisitos a instalação do Docker e Docker-compose. Também é necessário ter o Git instalado para clonar o repositório.
