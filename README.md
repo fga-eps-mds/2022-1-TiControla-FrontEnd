@@ -8,7 +8,7 @@ Estes repositórios são dedicados para o desenvolvimento e contibuição do sof
 # Como Contribuir
 
 # Guia de Instalação
-Essa aplicação tem seu ambiente configurado através de conteiners Docker, portanto, tem como pré-requisitos a instalação do Docker e Docker-compose. Também é necessário ter o Git instalado para clonar o repositório.
+Essa aplicação tem seu ambiente configurado através de conteiners Docker, portanto, tem como pré-requisitos a instalação do Docker e Docker-compose. Também é necessário ter o Git instalado para clonar sdadasdaso repositório.
 
 **Passos de configuração**:
 Clonar o repositório:
