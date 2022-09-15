@@ -36,12 +36,13 @@ export default function Cadastro() {
       // data['first_name'] = data['nome'];
       delete data['nome'];
       delete data['celular'];
-      console.log(backendBaseServer + 'register/');
+      console.log(backendBaseServer + 'register/',data);
       fetch(backendBaseServer + 'register/',{
         method: 'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify(data)
-      }).then(result => { console.log(result); }).catch(e => { console.log(e); });
+      }).then(result => { return result.text() }).then( resultData => { console.log(resultData);})
+      .catch(e => { console.log(e); });
     }
 
   return (
