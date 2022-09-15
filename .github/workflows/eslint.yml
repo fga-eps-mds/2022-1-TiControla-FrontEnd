@@ -31,9 +31,16 @@ jobs:
         run: |
           echo 'LINT_MESSAGE<<EOF' >> $GITHUB_ENV
           echo $'Output do eslint:\n```\n' >> $GITHUB_ENV
-          npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx --format @microsoft/eslint-formatter-sarif  >> $GITHUB_ENV
+          npx eslint .  --ext .js,.jsx,.ts,.tsx  >> $GITHUB_ENV
           echo $'\n```\n' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
+
+echo 'CF_URL<<EOF' >> $GITHUB_ENV
+
+echo 'EOF' >> $GITHUB_ENV
+
+
+
         continue-on-error: true
 
       - name: Post result to PR
