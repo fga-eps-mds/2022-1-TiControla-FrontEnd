@@ -28,6 +28,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/no-namespace" : "off",
         "react-native/no-unused-styles": 1,
         "react-native/split-platform-components": 1,
         "react-native/no-inline-styles": 1,
