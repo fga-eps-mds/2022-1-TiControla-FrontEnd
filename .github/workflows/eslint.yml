@@ -35,14 +35,14 @@ jobs:
 
       - name: Run ESLint
         run: |
-          npx eslint .  --ext .js,.jsx,.ts,.tsx
+          npx eslint .  --ext .js,.jsx,.ts,.tsx --output-file eslint-results.sarif
         continue-on-error: true
 
       - name: Run ESLint
         run: |
           echo 'LINT_MESSAGE<<EOF' >> $GITHUB_ENV
           echo $'Output do eslint:\n```\n' >> $GITHUB_ENV
-          npx eslint .  --ext .js,.jsx,.ts,.tsx  >> $GITHUB_ENV
+          cat eslint-results.sarif >> $GITHUB_ENV
           echo $'\n```\n' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
 
