@@ -1,17 +1,17 @@
 
 
-import { StyleSheet, View, StatusBar, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
+import { StyleSheet, View, StatusBar, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Texto from '../../../../components/Texto';
 import DateField from 'react-native-datefield';
 import { dimensao } from '../../../../utils/dimensoesDoDipositivo';
 import Botao from '../../../../components/Botao';
 import { RootStackScreenProps } from '../../../../application/types/RootStack';
-export default function EdicaoLancamentoDebito({ navigation, route }: RootStackScreenProps<"EdicaoLancamentoDebito">) {
-  const {lancamento} = route.params;
+export default function EdicaoLancamentoDebito({ navigation, route }: RootStackScreenProps<'EdicaoLancamentoDebito'>) {
+	const {lancamento} = route.params;
   
-  return (
-    <View style={styles.container}>
+	return (
+		<View style={styles.container}>
 			<SafeAreaView >
 				<View style={styles.form}>
 
@@ -93,15 +93,15 @@ const styles = StyleSheet.create({
 	form: {
 		color: '#fff',
 		marginRight: 20,
-		justifyContent: "center",
+		justifyContent: 'center',
 		marginLeft: 20,
 	},
 	texto: {
 		marginTop: 10,
-		color: "#fff",
+		color: '#fff',
 	},
 	titulo: {
-		color: "#fff",
+		color: '#fff',
 		fontSize: 20,
 		textAlign: 'center',
 		marginBottom: 30,
