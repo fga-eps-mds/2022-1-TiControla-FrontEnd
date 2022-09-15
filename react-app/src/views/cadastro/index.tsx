@@ -45,7 +45,7 @@ export default function Cadastro() {
 				'Content-Type':'application/json'
 			},
 			body: JSON.stringify(data)
-		}).then(result => { return result.json(); }).then( resultData => { console.log(resultData);}).catch(e => { console.log(e); });
+		}).then(result => { return result.json(); }).then( resultData => { alert('Por favor, abra o email e clique no link para verificar a sua conta .');}).catch(e => { console.log(e); });
 	};
 
 	return (
