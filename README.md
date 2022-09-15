@@ -15,7 +15,7 @@ Clonar o repositório:
 
   <code>git clone https://github.com/fga-eps-mds/2022-1-TiControla-FrontEnd.git</code>
 
-# Integrantes do Squad 1
+# Integrantes do Squad 1sdadasdsad
 |Nome|Usuário GitHub|
 |--|--|
 |Leonardo Michalski Miranda|leommiranda|
