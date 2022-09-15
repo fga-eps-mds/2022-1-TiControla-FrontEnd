@@ -1,3 +1,3 @@
 export const config = {
-    backendBaseServer: 'http://159.203.156.52/'
+    backendBaseServer: 'https://161.35.248.92.nip.io/'
 } 
