@@ -12,16 +12,16 @@ export type RootStackParamList = {
     Login: undefined
     Cadastro: undefined
     Home: {usuarioLogado: UsuarioLogado}
-    Perfil: {usuario: Usuario}
-    DebitoLancamentos: {id: string}
-    CreditoLancamentos: {id: string}
-    DebitoDetalhamento: {lancamento: Lancamento}
-    CreditoDetalhamento: {lancamento: Lancamento}
-    CadastroLancamentoDebito: {id: string}
-    EdicaoLancamentoDebito: {lancamento: Lancamento}
-    CadastroLancamentoCredito: {id: string}
-    EdicaoLancamentoCredito: {lancamento: Lancamento}
-    GastosFixos: {id: string}
+    Perfil: {usuarioLogado: UsuarioLogado}
+    DebitoLancamentos: {usuarioLogado: UsuarioLogado}
+    CreditoLancamentos: {usuarioLogado: UsuarioLogado}
+    DebitoDetalhamento: {usuarioLogado: UsuarioLogado}
+    CreditoDetalhamento: {usuarioLogado: UsuarioLogado}
+    CadastroLancamentoDebito: {usuarioLogado: UsuarioLogado}
+    EdicaoLancamentoDebito: {usuarioLogado: UsuarioLogado}
+    CadastroLancamentoCredito: {usuarioLogado: UsuarioLogado}
+    EdicaoLancamentoCredito: {usuarioLogado: UsuarioLogado}
+    GastosFixos: {usuarioLogado: UsuarioLogado}
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
