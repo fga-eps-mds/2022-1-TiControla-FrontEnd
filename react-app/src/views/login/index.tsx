@@ -51,42 +51,43 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 
 	// parei aqui
 	const handleLogin = (data: any) => {
-		fetch(backendBaseServer + 'login/', {
-			method: 'POST',
-			credentials: 'include',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		})
-			.then((result) => {
-				console.log(result.status,data);
-				let usuario;
-				if (result.status == 200) {
-					csrftoken = result.headers
-						.get('set-cookie')!
-						.split(';')[0]
-						.split('token=')[1];
-					sessionid = result.headers
-						.get('set-cookie')!
-						.split(';')[4]
-						.split('sessionid=')[1];
-					console.log(csrftoken,sessionid);
-					usuario = logarUsuario(csrftoken, sessionid);
-					navigation.navigate('Home', {
-						usuarioLogado: usuario,
-					});
-				}
-				return result.json();
-			}).then( resultData => {
-				if(resultData['non_field_errors'][0]) 
-				{
-					alert(resultData['non_field_errors'][0]);
-				}
-			})
-			.catch((e) => {
-				console.log(e);
-			});
+		// fetch(backendBaseServer + 'login/', {
+		// 	method: 'POST',
+		// 	credentials: 'include',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(data),
+		// })
+		// 	.then((result) => {
+		// 		console.log(result.status,data);
+		// 		let usuario;
+		// 		if (result.status == 200) {
+		// 			csrftoken = result.headers
+		// 				.get('set-cookie')!
+		// 				.split(';')[0]
+		// 				.split('token=')[1];
+		// 			sessionid = result.headers
+		// 				.get('set-cookie')!
+		// 				.split(';')[4]
+		// 				.split('sessionid=')[1];
+		// 			console.log(csrftoken,sessionid);
+		// 			usuario = logarUsuario(csrftoken, sessionid);
+		// 			navigation.navigate('Home', {
+		// 				usuarioLogado: usuario,
+		// 			});
+		// 		}
+		// 		return result.json();
+		// 	}).then( resultData => {
+		// 		if(resultData['non_field_errors'][0]) 
+		// 		{
+		// 			alert(resultData['non_field_errors'][0]);
+		// 		}
+		// 	})
+		// 	.catch((e) => {
+		// 		console.log(e);
+		// 	});
+		navigation.navigate('Home', usuarioTeste);
 	};
 	return (
 		<View style={estilos.container}>

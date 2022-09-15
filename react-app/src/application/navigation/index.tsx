@@ -41,7 +41,7 @@ function RootNavigator(){
 			<Stack.Screen name='DebitoDetalhamento' component={DebitoDetalhamento} options={{headerTitle: 'Detalhamento de débito'}}/>
 			<Stack.Screen name='EdicaoLancamentoDebito' component={EdicaoLancamentoDebito} options={{headerTitle: 'Edição de débito'}}/>
 			<Stack.Screen name='CadastroLancamentoDebito' component={CadastroLancamentoDebito} options={{headerTitle: 'Cadastro de débito'}}/>
-			<Stack.Screen name='CreditoLancamentos' component={CreditoLancamentos} options={{headerTitle: 'Lançamentos de crédito'}}/>
+			<Stack.Screen name='CreditoLancamentos' component={CreditoLancamentos} options={{headerTitle: 'Lançamentos de crédito', headerShown: false}}/>
 			<Stack.Screen name='CreditoDetalhamento' component={CreditoDetalhamento} options={{headerTitle: 'Detalhamento de crédito'}}/>
 			<Stack.Screen name='EdicaoLancamentoCredito' component={EdicaoLancamentoCredito} options={{headerTitle: 'Edição de crédito'}}/>
 			<Stack.Screen name='CadastroLancamentoCredito' component={CadastroLancamentoCredito} options={{headerTitle: 'Cadastro de crédito'}}/>
@@ -60,14 +60,14 @@ type MyHeaderProps = {
     leftButton: any
 }
 
-function MyHeader({title, leftButton}: MyHeaderProps){
+export function MyHeader({title, leftButton}: MyHeaderProps){
 	return <View style={estilos.header}>
 		<View>{leftButton}</View>
 		<Texto tipo='negrito' style={estilos.title}>{title}</Texto>
 	</View>;
 }
 
-function MyBackButton({onPress}: TouchableOpacityProps) {
+export function MyBackButton({onPress}: TouchableOpacityProps) {
 	return <TouchableOpacity onPress={onPress} style={{marginTop: 8}}>
 		<Image source={arrow_back}/>
 	</TouchableOpacity>;
