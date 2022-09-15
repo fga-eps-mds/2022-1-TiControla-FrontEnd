@@ -18,10 +18,8 @@ import { style } from '@mui/system';
 import { config } from '../../application/config/url';
 
 const schema = yup.object({
-	nome: yup.string().required('Informe o seu nome!'),
-	username: yup.string().required('Informe o seu nome de usuário!'),
+	full_name: yup.string().required('Informe o seu nome completo!'),
 	email: yup.string().email('E-mail inválido!').required('Informe o seu endereço de email!'),
-	celular: yup.number().required('Informe o seu contato!'),
 	password: yup.string().min(4,'Insira uma password com mais de 4 dígitos').required('Informe a sua password!'),
 });
 
@@ -33,16 +31,21 @@ export default function Cadastro() {
 	const { backendBaseServer } = config;
 
 	const submitHandler = (data : any) => {
-		// data['first_name'] = data['nome'];
-		delete data['nome'];
+		
 		delete data['celular'];
+		delete data['nome'];
+		// delete data['full_name'];
+
 		console.log(backendBaseServer + 'register/',data);
 		fetch(backendBaseServer + 'register/',{
 			method: 'POST',
-			headers:{'Content-Type':'application/json'},
+			credentials: 'include',
+			headers:{
+				'referer': backendBaseServer,
+				'Content-Type':'application/json'
+			},
 			body: JSON.stringify(data)
-		}).then(result => { return result.text(); }).then( resultData => { console.log(resultData);})
-			.catch(e => { console.log(e); });
+		}).then(result => { return result.json(); }).then( resultData => { console.log(resultData);}).catch(e => { console.log(e); });
 	};
 
 	return (
@@ -75,7 +78,7 @@ export default function Cadastro() {
 					<Texto style={estilos.label}>Nome:</Texto>
 					<Controller
 						control={control}
-						name='nome'
+						name='full_name'
 						render={
 							({ field: { onBlur, onChange, value } }) => (
 								<TextInput
@@ -84,57 +87,14 @@ export default function Cadastro() {
 									onBlur={onBlur}
 									style={[estilos.input,
 										{
-											borderWidth: errors.nome && 1,
-											borderColor: errors.nome && 'red'
+											borderWidth: errors.full_name && 1,
+											borderColor: errors.full_name && 'red'
 										}]}
 									placeholder='Insira o nome completo' />
 							)
 						}
 					/>
-					{errors.nome && <Texto style={estilos.erro}>{errors.nome?.message}</Texto>}
-					<Texto style={estilos.label}>Nome de usuário:</Texto>
-					<Controller
-						control={control}
-						name='username'
-						render={
-							({ field: { onBlur, onChange, value } }) => (
-								<TextInput
-									value={value}
-									onChangeText={onChange}
-									onBlur={onBlur}
-									style={[estilos.input,
-										{
-											borderWidth: errors.username && 1,
-											borderColor: errors.username && 'red'
-										}]}
-									placeholder='Insira o nome de usuário' />
-							)
-						}
-					/>
-					{errors.username && <Texto style={estilos.erro}>{errors.username?.message}</Texto>}
-
-					<Texto style={estilos.label}>Celular:</Texto>
-					<Controller
-						control={control}
-						name='celular'
-						render={
-							({ field: { onBlur, onChange, value } }) => (
-								<TextInput
-									value={value}
-									onChangeText={onChange}
-									onBlur={onBlur}
-									style={[estilos.input,
-										{
-											borderWidth: errors.celular && 1,
-											borderColor: errors.celular && 'red'
-										}]}
-									keyboardType="name-phone-pad"
-									placeholder='Insira o contato' />
-							)
-						}
-					/>
-					{errors.celular && <Texto style={estilos.erro}>{errors.celular?.message}</Texto>}
-
+					{errors.full_name && <Texto style={estilos.erro}>{errors.full_name?.message}</Texto>}
 					<Texto style={estilos.label}>Senha:</Texto>
 					<Controller
 						control={control}
