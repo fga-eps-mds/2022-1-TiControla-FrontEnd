@@ -1,10 +1,10 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Lancamento } from './Lancamento';
-import { Usuario, UsuarioLogado } from "./Usuario"
+// import { Lancamento } from './Lancamento';
+import { UsuarioLogado } from './Usuario';
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList { }
+    type RootParamList = RootStackParamList
   }
 }
 

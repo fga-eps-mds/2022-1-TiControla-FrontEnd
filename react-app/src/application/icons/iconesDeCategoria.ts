@@ -9,13 +9,13 @@ import clothes from '../../assets/icons/clothes.png';
 import others from '../../assets/icons/others.png';
 
 export const icones = {
-    lazer: leisure,
-    carro: car,
-    comida: food,
-    mercado: supermarket,
-    pet: pet,
-    pessoal: personal,
-    viagem: trip,
-    roupa: clothes,
-    outros: others,
-}
+	lazer: leisure,
+	carro: car,
+	comida: food,
+	mercado: supermarket,
+	pet: pet,
+	pessoal: personal,
+	viagem: trip,
+	roupa: clothes,
+	outros: others,
+};

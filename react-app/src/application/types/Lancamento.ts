@@ -1,4 +1,4 @@
-import { Usuario } from "./Usuario"
+import { Usuario } from './Usuario';
 
 export type Lancamento = {
     id: Usuario,
