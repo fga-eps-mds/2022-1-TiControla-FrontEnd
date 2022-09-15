@@ -35,6 +35,11 @@ jobs:
 
       - name: Run ESLint
         run: |
+          npx eslint .  --ext .js,.jsx,.ts,.tsx
+        continue-on-error: true
+
+      - name: Run ESLint
+        run: |
           echo 'LINT_MESSAGE<<EOF' >> $GITHUB_ENV
           echo $'Output do eslint:\n```\n' >> $GITHUB_ENV
           npx eslint .  --ext .js,.jsx,.ts,.tsx  >> $GITHUB_ENV
