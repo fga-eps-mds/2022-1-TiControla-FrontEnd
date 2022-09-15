@@ -11,7 +11,6 @@ export default function EdicaoLancamentoCredito({ navigation, route }: RootStack
 	return (
 		<View style={styles.container}>
 			<SafeAreaView >
-				<Texto tipo='negrito' style={styles.titulo}>Edição de crédito</Texto>
 				<View style={styles.form}>
 
 					<Texto tipo='normal' style={styles.texto}>Data:</Texto>
@@ -19,29 +18,35 @@ export default function EdicaoLancamentoCredito({ navigation, route }: RootStack
 						defaultValue={new Date()}
 						styleInput={styles.inputBorder}
 						onSubmit={(value) => console.log(value)}
-					/>
-
-					<Texto tipo='normal' style={styles.texto}>Tipo:</Texto>
-					<View style={styles.textInputWrapper}>
-						<TextInput styles={styles.textInput} defaultValue='Débito' editable={false} placeholder="Tipo de débito" />
-					</View>
-
+					/>			
 					<Texto tipo='normal' style={styles.texto}>Nome:</Texto>
 					<View style={styles.textInputWrapper}>
-						<TextInput styles={styles.textInput} placeholder="Nome para a aplicação de débito" />
+						<TextInput style={styles.textInput} placeholder="Nome para a aplicação de crédito" />
 					</View>
 
 					<Texto tipo='normal' style={styles.texto}>Descrição:</Texto>
 					<View style={styles.textInputWrapper}>
-						<TextInput numberOfLines={10} multiline={true} styles={styles.textInputWrapper} placeholder="Insira alguma descrição" />
+						<TextInput numberOfLines={8} multiline={true} style={styles.textInput} placeholder="Descreva a compra (exemplo: Ticket Estacionamento)" />
+					</View>
+					<Texto tipo='normal' style={styles.texto}>Apelido do cartão:</Texto>
+					<View style={styles.textInputWrapper}>
+						<TextInput style={styles.textInput} defaultValue='Apelido do cartão' editable={false} placeholder="Tipo de débito" />
 					</View>
 
+					<Texto tipo='normal' style={styles.texto}>Parcelas:</Texto>
+					<View style={styles.textInputWrapper}>
+						<TextInput style={styles.textInput} keyboardType='number-pad' placeholder="1 de ???" />
+					</View>
+					
 					<Texto tipo='normal' style={styles.texto}>Valor:</Texto>
 					<View style={styles.textInputWrapper}>
-						<TextInput styles={styles.textInput} keyboardType='number-pad' placeholder="R$" />
+						<TextInput style={styles.textInput} keyboardType='number-pad' placeholder="R$" />
 					</View>
+
+
+
 					<View style={styles.spacing}>
-						<Botao tipo='grande' cor='verde'>Cadastrar</Botao>
+						<Botao tipo='grande' cor='verde'>Salvar</Botao>
 					</View>
 				</View>
 			</SafeAreaView>
@@ -52,8 +57,10 @@ export default function EdicaoLancamentoCredito({ navigation, route }: RootStack
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		flexDirection: 'column',
 		backgroundColor: '#0B4B53',
 		width: dimensao.largura,
+		alignItems: 'center',
 	},
 	buttonvoltar: {
 		width: 34,
@@ -80,9 +87,10 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		borderWidth: 1,
 		padding: 10
-	}, textInput: {
-		color: 'red',
-		flex: 1
+	}, 
+	textInput: {
+		color: '#afafaf',
+		//flex: 1
 	},
 	form: {
 		color: '#fff',
@@ -102,7 +110,7 @@ const styles = StyleSheet.create({
 		marginTop: -32.5
 	},
 	spacing: {
-		marginTop: 50,
+		marginTop: 20,
 		alignItems: 'center',
 	}
 });

@@ -7,5 +7,6 @@ export const usuarioTeste: Usuario = {
 	senha: 'senha',
 	saldo: 3000,
 	limiteDisponivel: 1500,
+	limiteMaximo: 1500,
 	totalDasFaturas: 2000,
 };

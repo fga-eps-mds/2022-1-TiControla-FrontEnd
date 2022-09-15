@@ -10,7 +10,7 @@ export const lancamentosTeste: Lancamento[] = [
 		apelidoCartao: 'nubank',
 		data: new Date(),
 		categoria: 'outros',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 100,
 		parcelas: 3
 	},
@@ -22,7 +22,7 @@ export const lancamentosTeste: Lancamento[] = [
 		apelidoCartao: 'nubank',
 		data: new Date(),
 		categoria: 'roupa',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',        
 		valor: 59.99,
 		parcelas: 5
 	},
@@ -34,7 +34,7 @@ export const lancamentosTeste: Lancamento[] = [
 		apelidoCartao: 'nubank',
 		data: new Date(),
 		categoria: 'viagem',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 300,
 		parcelas: 3
 	},
@@ -46,7 +46,7 @@ export const lancamentosTeste: Lancamento[] = [
 		apelidoCartao: 'digio',
 		data: new Date(),
 		categoria: 'pet',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 150,
 		parcelas: 4
 	},
@@ -58,7 +58,7 @@ export const lancamentosTeste: Lancamento[] = [
 		apelidoCartao: 'digio',
 		data: new Date(),
 		categoria: 'outros',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 49.99,
 		parcelas: 12
 	},
@@ -69,7 +69,7 @@ export const lancamentosTeste: Lancamento[] = [
 		nome: 'Padaria',
 		data: new Date(),
 		categoria: 'comida',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 30.00,
 		parcelas: 'unica'
 	},
@@ -80,7 +80,7 @@ export const lancamentosTeste: Lancamento[] = [
 		nome: 'Padaria',
 		data: new Date(),
 		categoria: 'comida',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 30.00,
 		parcelas: 'unica'
 	},
@@ -91,7 +91,7 @@ export const lancamentosTeste: Lancamento[] = [
 		nome: 'Cinema',
 		data: new Date(),
 		categoria: 'lazer',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 24.50,
 		parcelas: 'unica'
 	},
@@ -102,7 +102,7 @@ export const lancamentosTeste: Lancamento[] = [
 		nome: 'Remedio',
 		data: new Date(),
 		categoria: 'pessoal',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 50.00,
 		parcelas: 'unica'
 	},
@@ -113,7 +113,7 @@ export const lancamentosTeste: Lancamento[] = [
 		nome: 'Óleo do carro',
 		data: new Date(),
 		categoria: 'carro',
-		descricao: 'Sint nisi adipisicing Lorem reprehenderit consectetur in officia et anim dolor voluptate qui magna reprehenderit. Lorem reprehenderit eiusmod et qui Lorem. Ea cillum consectetur cillum qui et officia dolor duis elit est pariatur aute ad. Officia fugiat velit dolore amet aliquip anim. Eiusmod cillum in irure officia culpa pariatur ea eu sint elit laborum enim mollit.',
+		descricao: 'Compra em loja.',
 		valor: 150.00,
 		parcelas: 'unica'
 	}
