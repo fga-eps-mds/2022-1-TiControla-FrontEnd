@@ -22,7 +22,7 @@ import { UsuarioLogado } from '../../application/types/Usuario';
 // import AsyncStorage from "@react-native-community/async-storage";
 
 const schema = yup.object({
-	username: yup.string().required('Informe o seu nome de usuário!'),
+	email: yup.string().required('Informe o seu nome de usuário!'),
 	password: yup
 		.string()
 		.min(4, 'Insira uma password com mais de 4 dígitos')
@@ -76,6 +76,10 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 						usuarioLogado: usuario,
 					});
 				}
+				return result.json();
+			}).then( resultData => {
+				alert(resultData['non_field_errors'][0]);
+				console.log(resultData);
 			})
 			.catch((e) => {
 				console.log(e);
@@ -89,7 +93,7 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 					<Texto style={estilos.label}>Nome de usuário:</Texto>
 					<Controller
 						control={control}
-						name="username"
+						name="email"
 						render={({ field: { onBlur, onChange, value } }) => (
 							<TextInput
 								value={value}
@@ -98,16 +102,16 @@ export default function Login({ navigation }: RootStackScreenProps<'Login'>) {
 								style={[
 									estilos.input,
 									{
-										borderWidth: errors.username && 1,
-										borderColor: errors.username && 'red',
+										borderWidth: errors.email && 1,
+										borderColor: errors.email && 'red',
 									},
 								]}
 								placeholder="Insira o nome de usuário"
 							/>
 						)}
 					/>
-					{errors.username && (
-						<Texto style={estilos.erro}>{errors.username?.message}</Texto>
+					{errors.email && (
+						<Texto style={estilos.erro}>{errors.email?.message}</Texto>
 					)}
 					<Texto style={estilos.label}>Senha:</Texto>
 					<Controller
