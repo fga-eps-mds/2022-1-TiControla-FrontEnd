@@ -1,7 +1,7 @@
 ![Logo TiControla](https://user-images.githubusercontent.com/102192917/184401954-7b7c706b-c287-4c22-83b0-a3039213c627.jpg)
 
 # Visão Geral
-TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usuário, organizando categorias de gastos e o notificando quando um limite é encontrado. 
+TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usuário, organizando categorias de gastos e o notificando quando um limite é encontrado. dsadasdasdasd
 
 Estes repositórios são dedicados para o desenvolvimento e contibuição do software **TiControla**. O repositório principal é o FrontEnd, parente dos repositórios BackEnd e Docs. As issues estão sendo levantadas somente neste repositório.
 
