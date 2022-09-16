@@ -37,7 +37,7 @@ function RootNavigator(){
 			<Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
 			<Stack.Screen name='Cadastro' component={Cadastro} options={{headerShown: false}}/>
 			<Stack.Screen name='Perfil' component={Profile} options={{headerShown: false}}/>
-			<Stack.Screen name='DebitoLancamentos' component={DebitoLancamentos} options={{headerTitle: 'Lançamentos de débitos'}}/>
+			<Stack.Screen name='DebitoLancamentos' component={DebitoLancamentos} options={{headerShown: false}}/>
 			<Stack.Screen name='DebitoDetalhamento' component={DebitoDetalhamento} options={{headerTitle: 'Detalhamento de débito'}}/>
 			<Stack.Screen name='EdicaoLancamentoDebito' component={EdicaoLancamentoDebito} options={{headerTitle: 'Edição de débito'}}/>
 			<Stack.Screen name='CadastroLancamentoDebito' component={CadastroLancamentoDebito} options={{headerTitle: 'Cadastro de débito'}}/>

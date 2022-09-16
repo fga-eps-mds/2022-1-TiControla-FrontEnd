@@ -47,7 +47,7 @@ export default function CadastroLancamentoCredito({ navigation, route }: RootSta
 
 
 					<View style={styles.spacing}>
-						<Botao tipo='grande' cor='verde'>Salvar</Botao>
+						<Botao tipo='grande' cor='verde'>Cadastrar</Botao>
 					</View>
 				</View>
 			</SafeAreaView>

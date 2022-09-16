@@ -75,7 +75,7 @@ export default function DebitoLancamentos({
         <Texto style={estilos.infoTexto}>Total de saidas</Texto>
         <Monetario style={estilos.infoValor}>40</Monetario>
       </InfoContainer>
-      <Botao cor="verde" tipo="grande" style={estilos.botao}>Cadastrar novo lançamento</Botao>
+      <Botao cor="verde" tipo="grande" style={estilos.botao} onPress={() => navigation.navigate('CadastroLancamentoDebito', {id: id})}>Cadastrar novo lançamento</Botao>
     </ScrollView>
   );
 }
