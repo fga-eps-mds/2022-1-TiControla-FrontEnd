@@ -6,6 +6,9 @@
 - [BackEnd](https://github.com/fga-eps-mds/2022-1-TiControla-BackEnd): REST API.
 - [IaC](https://github.com/fga-eps-mds/2022-1-TiControla-IaC): infraestrutura como código.
 
+## Link ao Site
+https://orlandirodrigo.github.io/2022-1-TiControla-Docs/
+
 ## Visão Geral
 TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usuário, organizando categorias de gastos e o notificando quando um limite é encontrado. 
 
