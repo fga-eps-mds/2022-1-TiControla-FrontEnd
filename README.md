@@ -1,10 +1,11 @@
 ![Logo TiControla](https://user-images.githubusercontent.com/102192917/184401954-7b7c706b-c287-4c22-83b0-a3039213c627.jpg)
 
-## Repositórios do projeto
-- [Docs](https://github.com/fga-eps-mds/2022-1-TiControla-Docs): documentos exceto os de instalação e de execução.
-- [FrontEnd](https://github.com/fga-eps-mds/2022-1-TiControla-FrontEnd): aplicativo mobile.
-- [BackEnd](https://github.com/fga-eps-mds/2022-1-TiControla-BackEnd): REST API.
-- [IaC](https://github.com/fga-eps-mds/2022-1-TiControla-IaC): infraestrutura como código.
+## Links úteis
+- [Repositório Docs: documentos exceto os de instalação e de execução.](https://github.com/fga-eps-mds/2022-1-TiControla-Docs)
+- [Repositório FrontEnd: aplicativo mobile.](https://github.com/fga-eps-mds/2022-1-TiControla-FrontEnd)
+- [Repositório BackEnd: REST API.](https://github.com/fga-eps-mds/2022-1-TiControla-BackEnd)
+- [Repositório IaC: infraestrutura como código.](https://github.com/fga-eps-mds/2022-1-TiControla-IaC)
+- [Vídeo explicativo: vídeo que explica o projeto e seus principais arquivos e pastas.](https://www.youtube.com/watch?v=I2juKHgg2lw)
 
 ## Visão Geral
 TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usuário, organizando categorias de gastos e o notificando quando um limite é encontrado. 
