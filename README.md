@@ -7,6 +7,9 @@
 - [Repositório IaC: infraestrutura como código.](https://github.com/fga-eps-mds/2022-1-TiControla-IaC)
 - [Vídeo explicativo: vídeo que explica o projeto e seus principais arquivos e pastas.](https://www.youtube.com/watch?v=I2juKHgg2lw)
 
+## Link ao Site
+https://orlandirodrigo.github.io/2022-1-TiControla-Docs/
+
 ## Visão Geral
 TiControla é um aplicativo feito com o objetivo de auxiliar as finanças do usuário, organizando categorias de gastos e o notificando quando um limite é encontrado. 
 
